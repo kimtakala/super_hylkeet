@@ -19,7 +19,7 @@ jobs:
         run: pip install poetry
       - name: Set environment variables
         env:
-          SQLALCHEMY_DATABASE_URI: ${{ secrets.SQLALCHEMY_DATABASE_URI }}
+          SQLALCHEMY_DATABASE_URI: ${{ secrets.PSQL_DATABASE_URL }}
         run: |
           echo "SQLALCHEMY_DATABASE_URI=$SQLALCHEMY_DATABASE_URI" >> $GITHUB_OUTPUT
       - name: Setup chromedriver
