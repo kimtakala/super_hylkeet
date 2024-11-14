@@ -5,7 +5,7 @@ from config import db
 
 def add_reference():
     title = request.form["title"]
-    author = request.form["author"]
+    authors = request.form["authors"]
     year = request.form["year"]
     type = request.form["type"]
     doi = request.form["doi"]
@@ -15,13 +15,13 @@ def add_reference():
     tags = request.form["tags"]
 
     sql = text(
-        "INSERT INTO references (title, author, year, type, doi, pages, volume, publisher, tags) VALUES (:title, :author, :year, :type, :doi, :pages, :volume, :publisher, :tags)"
+        "INSERT INTO references (title, authors, year, type, doi, pages, volume, publisher, tags) VALUES (:title, :authors, :year, :type, :doi, :pages, :volume, :publisher, :tags)"
     )
     db.session.execute(
         sql,
         {
             "title": title,
-            "author": author,
+            "authors": authors,
             "year": year,
             "type": type,
             "doi": doi,
