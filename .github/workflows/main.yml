@@ -17,6 +17,11 @@ jobs:
           python-version: '3.11'
       - name: Install Poetry
         run: pip install poetry
+      - name: Set environment variables
+        env:
+          SQLALCHEMY_DATABASE_URI: ${{ secrets.SQLALCHEMY_DATABASE_URI }}
+        run: |
+          echo "SQLALCHEMY_DATABASE_URI=$SQLALCHEMY_DATABASE_URI" >> $GITHUB_OUTPUT
       - name: Setup chromedriver
         uses: nanasess/setup-chromedriver@master
       - run: |
