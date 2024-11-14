@@ -13,15 +13,17 @@ def add_reference():
     volume = request.form["volume"]
     publisher = request.form["publisher"]
     tags = request.form["tags"]
+    key = request.form["key"]
 
     sql = text(
-        "INSERT INTO references (title, authors, year, type, doi, pages, volume, publisher, tags) VALUES (:title, :authors, :year, :type, :doi, :pages, :volume, :publisher, :tags)"
+        "INSERT INTO citations (title, authors, key,  year, type, doi, pages, volume, publisher, tags) VALUES (:title, :authors, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags)"
     )
     db.session.execute(
         sql,
         {
             "title": title,
             "authors": authors,
+            "key": key,
             "year": year,
             "type": type,
             "doi": doi,

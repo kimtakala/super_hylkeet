@@ -1,7 +1,7 @@
 from config import db, app
 from sqlalchemy import text
 
-table_name = "refrences"
+table_name = "citations"
 
 
 def table_exists(name):
@@ -48,7 +48,7 @@ def setup_db():
     publisher TEXT,
     link TEXT,
     doi TEXT,
-    tag TEXT
+    tags TEXT
     )"""
     )
 
