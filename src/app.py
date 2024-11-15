@@ -1,7 +1,8 @@
-from flask import redirect, render_template, jsonify
+from flask import redirect, render_template, jsonify, request
 from db_helper import reset_db
 from config import app, test_env
 from repositories.citation_repository import add_citation
+from form_verification import validate_citations
 
 
 @app.route("/")
@@ -9,10 +10,13 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/add_reference", methods=["POST"])
-def add_reference_route():
-    # validaatiofunktio tähän
-    add_citation()
+@app.route("/add_citation", methods=["POST"])
+def add_citation_route():
+    citation = request.form
+    errors = validate_citations(citation)
+    if errors:
+        return render_template("index.html", errors=errors)
+    add_citation(citation)
     return redirect("/")
 
 

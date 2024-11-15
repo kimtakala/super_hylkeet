@@ -1,4 +1,3 @@
-from flask import request
 from sqlalchemy import text
 from config import db
 
@@ -13,9 +12,7 @@ def get_citations():
     return [Citation(data) for data in citations]
 
 
-def add_citation():
-    data = request.form
-
+def add_citation(data):
     sql = text(
         """INSERT INTO citations 
             (title, authors, key,  year, type, doi, pages, volume, publisher, tags, citation_url) 
