@@ -48,7 +48,8 @@ def setup_db():
     publisher TEXT,
     link TEXT,
     doi TEXT,
-    tags TEXT
+    tags TEXT,
+    citation_url TEXT
     )"""
     )
 
