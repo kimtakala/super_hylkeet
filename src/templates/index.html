@@ -15,6 +15,10 @@ Reference app
 </ul>
 {% endif %}
 
+{% if success %}
+{{ success }}
+{% endif %}
+
 <div>
   <form action="/add_citation" method="post">
     <label for="title">Title:</label><br>
