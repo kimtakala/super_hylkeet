@@ -46,7 +46,6 @@ def setup_db():
     pages TEXT,
     volume TEXT,
     publisher TEXT,
-    link TEXT,
     doi TEXT,
     tags TEXT,
     citation_url TEXT
