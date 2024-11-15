@@ -1,7 +1,7 @@
 from flask import redirect, render_template, jsonify
 from db_helper import reset_db
 from config import app, test_env
-from references import add_reference
+from repositories.citation_repository import add_citation
 
 
 @app.route("/")
@@ -12,7 +12,7 @@ def index():
 @app.route("/add_reference", methods=["POST"])
 def add_reference_route():
     # validaatiofunktio tähän
-    add_reference()
+    add_citation()
     return redirect("/")
 
 
