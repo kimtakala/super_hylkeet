@@ -10,7 +10,7 @@ def add_citation():
         """INSERT INTO citations 
             (title, authors, key,  year, type, doi, pages, volume, publisher, tags, citation_url) 
             VALUES 
-            (:title, :authors, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags, citation_url)"""
+            (:title, :authors, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags, :citation_url)"""
     )
     db.session.execute(
         sql,
@@ -25,7 +25,7 @@ def add_citation():
             "volume": data["volume"],
             "publisher": data["publisher"],
             "tags": data["tags"],
-            "citation_url": data["citation_url"]
+            "citation_url": data["citation_url"],
         },
     )
 
