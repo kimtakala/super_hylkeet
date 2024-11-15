@@ -2,6 +2,16 @@ from flask import request
 from sqlalchemy import text
 from config import db
 
+from entities.citation import Citation
+
+
+def get_citations():
+    sql = "SELECT * FROM citations"
+    result = db.session.execute(text(sql))
+    citations = result.fetchall()
+
+    return [Citation(data) for data in citations]
+
 
 def add_citation():
     data = request.form
