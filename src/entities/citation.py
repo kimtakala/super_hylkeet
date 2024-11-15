@@ -1,5 +1,4 @@
-KEYS = ["id", "key", "type", "title", "authors", "year",
-        "pages", "volume", "publisher", "doi", "tags", "citation_url"]
+from db_helper import COLUMN_NAMES
 
 
 class Citation:
@@ -9,7 +8,7 @@ class Citation:
         self.data = {}
         for i, value in enumerate(data):
             if value:
-                self.data[KEYS[i]] = value
+                self.data[COLUMN_NAMES[i]] = value
 
     def __str__(self):
         return str(self.data)

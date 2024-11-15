@@ -3,6 +3,9 @@ from sqlalchemy import text
 
 table_name = "citations"
 
+COLUMN_NAMES = ["id", "key", "type", "title", "authors", "year",
+                "pages", "volume", "publisher", "doi", "tags", "citation_url", "timestamp"]
+
 
 def table_exists(name):
     sql_table_existence = text(
@@ -48,7 +51,8 @@ def setup_db():
     publisher TEXT,
     doi TEXT,
     tags TEXT,
-    citation_url TEXT
+    citation_url TEXT,
+    timestamp TEXT
     )"""
     )
 
