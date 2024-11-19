@@ -15,6 +15,10 @@ class Citation:
     def id(self):
         return self._data["id"]
 
+    @property
+    def authors(self):
+        return self._data["authors"]
+
     def __str__(self):
         return str(self._data)
 

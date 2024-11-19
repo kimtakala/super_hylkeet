@@ -20,6 +20,7 @@ class CitationService:
             authors = get_authors_by_citation_id(citation.id)
             author_string = ", ".join(authors)
             citation.add_authors(author_string)
+
         return citations
 
 
