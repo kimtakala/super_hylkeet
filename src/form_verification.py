@@ -1,3 +1,9 @@
+#   Verifying functions return value if verification:
+#   - Succeeds:
+#       Nothing
+#   - Fails:
+#       Appropriate message
+
 def verify_author(author):
     if len(author) < 2:
         return "Author field must include more than one character"
