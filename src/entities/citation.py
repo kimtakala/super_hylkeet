@@ -1,4 +1,5 @@
 from db_helper import COLUMN_NAMES
+from repositories.authors_repository import get_authors_by_citation_id
 
 
 class Citation:
@@ -10,6 +11,14 @@ class Citation:
             if value:
                 self._data[COLUMN_NAMES[i]] = value
 
+    @property
+    def id(self):
+        return self._data["id"]
+
+    @property
+    def authors(self):
+        return self._data["authors"]
+
     def __str__(self):
         return str(self._data)
 
@@ -18,6 +27,9 @@ class Citation:
 
     def get_title(self):
         return self._data["title"]
+
+    def add_authors(self, authors):
+        self._data["authors"] = authors
 
     def get_datalines(self):
         # This funktion returns all relevant datafields. Not including the title.

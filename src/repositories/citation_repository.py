@@ -5,25 +5,35 @@ from entities.citation import Citation
 
 
 def get_citations():
-    sql = "SELECT * FROM citations ORDER BY timestamp DESC"
+    sql = """SELECT citations.* 
+    FROM citations 
+    LEFT JOIN authors 
+    ON citations.id = authors.citation_id
+    ORDER BY authors.last_name ASC"""
     result = db.session.execute(text(sql))
     citations = result.fetchall()
 
     return [Citation(data) for data in citations]
 
 
+def get_citation_by_title(title):
+    sql = "SELECT * FROM citations WHERE title = :title"
+    result = db.session.execute(text(sql), {"title": title})
+    citation = Citation(result.fetchone())
+    return citation
+
+
 def add_citation(data):
     sql = text(
         """INSERT INTO citations 
-            (title, authors, key,  year, type, doi, pages, volume, publisher, tags, citation_url, timestamp) 
+            (title, key,  year, type, doi, pages, volume, publisher, tags, citation_url, timestamp) 
             VALUES 
-            (:title, :authors, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags, :citation_url, CURRENT_TIMESTAMP)"""
+            (:title, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags, :citation_url, CURRENT_TIMESTAMP)"""
     )
     db.session.execute(
         sql,
         {
             "title": data["title"],
-            "authors": data["authors"],
             "key": data["key"],
             "year": data["year"],
             "type": data["doi"],
