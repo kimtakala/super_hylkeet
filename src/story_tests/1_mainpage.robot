@@ -27,6 +27,23 @@ Entering Valid Information The Citation Is Accepted
     ${value}=  Get Value  tags
     Should Be Empty  ${value}
 
+Entering Valid Information The Citation Is Shown On Page
+    Go To  ${HOME_URL}
+    Input Text  title  very scientific study
+    Input Text  key  vip123
+    Input Text  authors  Hylkeet et. al. et. co.
+    Input Text  year  2001
+    Select From List By Value  type  article
+    Input Text  doi  www.da_doih.fi/123/666
+    Input Text  pages  124
+    Input Text  volume  12.
+    Input Text  publisher  Nature
+    Click Button  submit
+    Title Should Be  Reference app
+    Page Should Contain  vip123
+    ${value}=  Get Value  tags
+    Should Be Empty  ${value}
+
 
 # After adding two todos and marking one done, there is one unfinished
 #     Go To  ${HOME_URL}
