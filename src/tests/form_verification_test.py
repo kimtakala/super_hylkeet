@@ -2,14 +2,9 @@ import unittest
 import form_verification
 
 class TestFormVerification(unittest.TestCase):
-
-    # ------- Tests that deal with input text length -------
-
-    def text_length_verification(self, function):
-        test_text = ["Kissa", "X", "Koira" * 100]
-
-        for i, text in enumerate(test_text):
-            msg = function(text)
+    def assert_first_is_none_others_is_not_none(self, test_cases, function):
+        for i, case in enumerate(test_cases):
+            msg = function(case)
 
             if i == 0:
                 self.assertIsNone(msg)
@@ -18,51 +13,48 @@ class TestFormVerification(unittest.TestCase):
 
 
     def test_author(self):
-        self.text_length_verification(form_verification.verify_author)
+        authors = ["Peruna", "X", "Porkkana" * 100]
+
+        self.assert_first_is_none_others_is_not_none(authors, form_verification.verify_author)
 
 
     def test_title(self):
-        self.text_length_verification(form_verification.verify_title)
+        titles = ["Satsuma", "Y", "Omena" * 100]
+
+        self.assert_first_is_none_others_is_not_none(titles, form_verification.verify_title)
 
     
     def test_booktitle(self):
-        self.text_length_verification(form_verification.verify_booktitle)
+        titles = ["Konkeli", "Z", "Mankeli" * 100]
+
+        self.assert_first_is_none_others_is_not_none(titles, form_verification.verify_booktitle)
 
 
     def test_journal(self):
-        self.text_length_verification(form_verification.verify_journal)
+        journals = ["Kakku", "X", "Kukka" * 100]
+
+        self.assert_first_is_none_others_is_not_none(journals, form_verification.verify_journal)
 
 
     def test_publisher(self):
-        self.text_length_verification(form_verification.verify_publisher)
+        publishers = ["Verna", "Y", "Gabriel" * 100]
+
+        self.assert_first_is_none_others_is_not_none(publishers, form_verification.verify_publisher)
 
 
     def test_pages(self):
-        self.text_length_verification(form_verification.verify_pages)
+        pages = ["1", "9" * 100]
 
-
-    # ------- Other tests -------
+        self.assert_first_is_none_others_is_not_none(pages, form_verification.verify_pages)
 
 
     def test_year(self):
         years = [2024, -1, 12345, "2024"]
 
-        for i, year in enumerate(years):
-            msg = form_verification.verify_year(year)
-
-            if i == 0:
-                self.assertIsNone(msg)
-            else:
-                self.assertIsNotNone(msg)
+        self.assert_first_is_none_others_is_not_none(years, form_verification.verify_year)
 
 
     def test_volume(self):
         volumes = [123, -5, "10"]
 
-        for i, volume in enumerate(volumes):
-            msg = form_verification.verify_volume(volume)
-
-            if i == 0:
-                self.assertIsNone(msg)
-            else:
-                self.assertIsNotNone(msg)
+        self.assert_first_is_none_others_is_not_none(volumes, form_verification.verify_volume)
