@@ -13,3 +13,12 @@ class CitationService:
 
         for author in authors:
             add_author_by_citation_id(citations_id, author)
+
+    def get_citations(self):
+        citations = get_citations()
+        for citation in citations:
+            authors = get_authors_by_citation_id(citation.id)
+            author_string = ",".join(
+                [f"{a['first_name']} {a['last_name']}" for a in authors])
+            citation.add_authors(author_string)
+        return citations

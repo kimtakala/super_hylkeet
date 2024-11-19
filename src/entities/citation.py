@@ -24,6 +24,9 @@ class Citation:
     def get_title(self):
         return self._data["title"]
 
+    def add_authors(self, authors):
+        self._data["authors"] = authors
+
     def get_datalines(self):
         # This funktion returns all relevant datafields. Not including the title.
         new_dict = self._data
