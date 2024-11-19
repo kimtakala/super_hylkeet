@@ -5,7 +5,7 @@ from entities.citation import Citation
 
 
 def get_citations():
-    sql = "SELECT * FROM citations"
+    sql = "SELECT * FROM citations ORDER BY timestamp DESC"
     result = db.session.execute(text(sql))
     citations = result.fetchall()
 

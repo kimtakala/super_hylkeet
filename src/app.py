@@ -7,7 +7,8 @@ from form_verification import validate_citations
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    citations = get_citations()
+    return render_template("index.html", listed_citations=citations)
 
 
 @app.route("/add_citation", methods=["POST"])

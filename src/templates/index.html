@@ -57,5 +57,14 @@ Reference app
     <button type="submit" id="submit">Submit</button>
   </form>
 </div>
-
+<ul>
+{% for citation in listed_citations %}
+      <li><h4>{{citation.get_title()}}</h4></li>
+      <ul>
+        {% for data_line in citation.get_datalines() %}
+          <li>{{data_line[0]}}:{{data_line[1]}}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+</ul>
 {% endblock %}
