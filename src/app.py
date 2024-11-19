@@ -26,16 +26,9 @@ def add_citation_route():
         return render_template("index.html", errors=errors)
     """
 
-
-<< << << < HEAD
-add_citation(citation)
-success = "Citation added successfully"
-return render_template("index.html", success=success)
-== == == =
-citation_service.add_citation(citation)
-success = "Citation added successfully"
-return render_template("index.html", success=success)
->>>>>> > db_overhaul
+    citation_service.add_citation(citation)
+    success = "Citation added successfully"
+    return render_template("index.html", success=success)
 
 
 # testausta varten oleva reitti
