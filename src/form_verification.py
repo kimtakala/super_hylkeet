@@ -56,11 +56,8 @@ def verify_volume(volume):
 
 
 def verify_pages(pages):
-    if len(pages) < 2:
-        return "Pages field must include more than 1 character"
-
     if len(pages) > 50:
-        return "Pages field must include less than 200 characters"
+        return "Pages field must include less than 50 characters"
 
 
 def verify_publisher(publisher):
