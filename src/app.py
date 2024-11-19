@@ -5,9 +5,6 @@ from repositories.citation_repository import add_citation
 from flask import render_template, jsonify, request
 from db_helper import reset_db
 from config import app, test_env
-<< << << < HEAD
-== == == =
->>>>>> > db_overhaul
 
 
 @app.route("/")
