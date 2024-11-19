@@ -4,7 +4,7 @@ from config import db
 
 def get_authors_by_citation_id(id):
     sql = text(
-        "SELECT first_name, last_name FROM authors WHERE citation_id == :id")
+        "SELECT first_name, last_name FROM authors WHERE citation_id = :id")
     result = db.session.execute(
         sql,
         {"id": id}

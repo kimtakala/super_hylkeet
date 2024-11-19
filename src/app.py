@@ -2,12 +2,13 @@ from flask import redirect, render_template, jsonify, request
 from db_helper import reset_db
 from config import app, test_env
 from repositories.citation_repository import add_citation, get_citations
+from citations_service import citation_service
 from form_verification import validate_citations
 
 
 @app.route("/")
 def index():
-    citations = get_citations()
+    citations = citation_service.get_citations()
     return render_template("index.html", listed_citations=citations)
 
 
@@ -20,7 +21,7 @@ def add_citation_route():
     if errors:
         return render_template("index.html", errors=errors)
     """
-    add_citation(citation)
+    citation_service.add_citation(citation)
     return redirect("/")
 
 
