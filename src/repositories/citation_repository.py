@@ -12,6 +12,13 @@ def get_citations():
     return [Citation(data) for data in citations]
 
 
+def get_citation_by_title(title):
+    sql = "SELECT * FROM citations WHERE title == :title"
+    result = db.session.execute(text(sql), {"title": title})
+    citation = Citation(result.fetchone())
+    return citation
+
+
 def add_citation(data):
     sql = text(
         """INSERT INTO citations 

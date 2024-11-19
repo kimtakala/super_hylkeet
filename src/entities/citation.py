@@ -1,4 +1,5 @@
 from db_helper import COLUMN_NAMES
+from repositories.authors_repository import get_authors_by_citation_id
 
 
 class Citation:
@@ -9,6 +10,10 @@ class Citation:
         for i, value in enumerate(data):
             if value:
                 self._data[COLUMN_NAMES[i]] = value
+
+    @property
+    def id(self):
+        return self._data["id"]
 
     def __str__(self):
         return str(self._data)
