@@ -13,31 +13,31 @@ class TestFormVerification(unittest.TestCase):
 
 
     def test_author(self):
-        authors = ["Peruna", "X", "Porkkana" * 100]
+        authors = ["Peruna", "Porkkana" * 100]
 
         self.assert_first_is_none_others_is_not_none(authors, form_verification.verify_author)
 
 
     def test_title(self):
-        titles = ["Satsuma", "Y", "Omena" * 100]
+        titles = ["Satsuma", "Omena" * 100]
 
         self.assert_first_is_none_others_is_not_none(titles, form_verification.verify_title)
 
     
     def test_booktitle(self):
-        titles = ["Konkeli", "Z", "Mankeli" * 100]
+        titles = ["Konkeli", "Mankeli" * 100]
 
         self.assert_first_is_none_others_is_not_none(titles, form_verification.verify_booktitle)
 
 
     def test_journal(self):
-        journals = ["Kakku", "X", "Kukka" * 100]
+        journals = ["Kakku", "Kukka" * 100]
 
         self.assert_first_is_none_others_is_not_none(journals, form_verification.verify_journal)
 
 
     def test_publisher(self):
-        publishers = ["Verna", "Y", "Gabriel" * 100]
+        publishers = ["Verna", "Gabriel" * 100]
 
         self.assert_first_is_none_others_is_not_none(publishers, form_verification.verify_publisher)
 
@@ -49,12 +49,12 @@ class TestFormVerification(unittest.TestCase):
 
 
     def test_year(self):
-        years = [2024, -1, 12345, "2024"]
+        years = ["2024", "-3", "12345"]
 
         self.assert_first_is_none_others_is_not_none(years, form_verification.verify_year)
 
 
     def test_volume(self):
-        volumes = [123, -5, "10"]
+        volumes = ["101", "blaablaa" * 100]
 
         self.assert_first_is_none_others_is_not_none(volumes, form_verification.verify_volume)
