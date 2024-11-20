@@ -16,12 +16,10 @@ def index():
 @app.route("/add_citation", methods=["POST"])
 def add_citation_route():
     citation = request.form
-    """
-    DATA VERIFICATION STILL IN PROGRESS
+    
     errors = validate_citations(citation)
     if errors:
         return render_template("index.html", errors=errors)
-    """
 
     citation_service.add_citation(citation)
     success = "Citation added successfully"
