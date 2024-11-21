@@ -1,7 +1,4 @@
-from form_verification import validate_citations
 from citations_service import citation_service
-from repositories.citation_repository import add_citation, get_citations
-from repositories.citation_repository import add_citation
 from flask import render_template, jsonify, request
 from db_helper import reset_db
 from config import app, test_env
@@ -23,7 +20,8 @@ def add_citation_route():
 
     citation_service.add_citation(citation)
     success = "Citation added successfully"
-    return render_template("index.html", success=success)
+    citations = citation_service.get_citations()
+    return render_template("index.html", success=success, listed_citations=citations)
 
 
 # testausta varten oleva reitti
