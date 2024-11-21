@@ -46,7 +46,7 @@ def setup_db():
     key TEXT NOT NULL,
     type TEXT NOT NULL,
     title TEXT NOT NULL,
-    authors TEXT NOT NULL,
+    authors TEXT,
     year INT,
     pages TEXT,
     volume TEXT,
@@ -55,6 +55,18 @@ def setup_db():
     tags TEXT,
     citation_url TEXT,
     timestamp TEXT
+    )"""
+    )
+
+    db.session.execute(sql)
+
+    sql = text(
+        f"""CREATE TABLE authors(
+    id SERIAL PRIMARY KEY,
+    citation_id INT NOT NULL,
+    first_name TEXT,
+    last_name TEXT,
+    FOREIGN KEY (citation_id) REFERENCES citations(id)
     )"""
     )
 
