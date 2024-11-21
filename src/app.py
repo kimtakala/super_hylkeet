@@ -1,3 +1,4 @@
+from form_verification import validate_citations
 from citations_service import citation_service
 from flask import render_template, jsonify, request
 from db_helper import reset_db
@@ -13,7 +14,7 @@ def index():
 @app.route("/add_citation", methods=["POST"])
 def add_citation_route():
     citation = request.form
-    
+
     errors = validate_citations(citation)
     if errors:
         return render_template("index.html", errors=errors)
