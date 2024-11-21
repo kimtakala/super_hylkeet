@@ -35,7 +35,7 @@ def reset_db():
 def setup_db():
     if table_exists(table_name):
         print(f"Table {table_name} exists, dropping")
-        sql = text(f"DROP TABLE {table_name}")
+        sql = text(f"DROP TABLE {table_name} CASCADED")
         db.session.execute(sql)
         db.session.commit()
 
@@ -59,6 +59,12 @@ def setup_db():
     )
 
     db.session.execute(sql)
+
+    if table_exists('authors'):
+        print(f"Table authors exists, dropping")
+        sql = text(f"DROP TABLE authors CASCADED")
+        db.session.execute(sql)
+        db.session.commit()
 
     sql = text(
         f"""CREATE TABLE authors(
