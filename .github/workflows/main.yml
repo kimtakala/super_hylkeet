@@ -36,5 +36,5 @@ jobs:
         run: poetry install
       - name: Run unit tests
         run: poetry run pytest
-      # - name: Run robot tests
-      #   run: bash run_robot_tests.sh
+      - name: Run robot tests
+        run: bash run_robot_tests.sh
