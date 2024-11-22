@@ -7,9 +7,16 @@
 #   Fields author, title & year are mandatory
 
 
-def verify_author(author):
-    if len(author) > 200:
-        return "Author field must include less than 200 characters"
+def verify_author(authors):
+    if len(authors) > 200:
+        return "Authors field must include less than 200 characters"
+    
+    authors = authors.split(',')
+
+    for author in authors:
+        names = author.split(' ')
+        if len(names) != 2:
+            return "Authors must be given in <FirstName LastName, FirstName LastName, ...> format"
 
 
 def verify_title(title):
