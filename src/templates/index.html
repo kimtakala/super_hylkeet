@@ -61,14 +61,27 @@ Reference app
     <button type="submit" id="submit">Submit</button>
   </form>
 </div>
-<ul>
+
 {% for citation in listed_citations %}
-      <li><h4>{{citation.get_title()}}</h4></li>
-      <ul>
-        {% for data_line in citation.get_datalines() %}
-          <li>{{data_line[0]}}:{{data_line[1]}}</li>
-        {% endfor %}
-    </ul>
+<h4 class="title" onclick="toggleDetails('details_{{ loop.index }}')">
+  {{ citation.get_title() }}, {{ citation.year }}
+</h4>
+<div id="details_{{ loop.index }}" class="details" style="display: none;">
+  {% for data_line in citation.get_datalines() %}
+  <p><strong>{{ data_line[0] }}:</strong> {{ data_line[1] }}</p>
+  {% endfor %}
+</div>
 {% endfor %}
-</ul>
+
+
+<script>
+  function toggleDetails(id) {
+    var details = document.getElementById(id);
+    if (details.style.display === "none") {
+      details.style.display = "block"; // Näyttää tiedot
+    } else {
+      details.style.display = "none"; // Piilottaa tiedot
+    }
+  }
+</script>
 {% endblock %}
