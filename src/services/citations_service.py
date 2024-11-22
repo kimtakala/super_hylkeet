@@ -7,7 +7,10 @@ class CitationService:
         pass
 
     def add_citation(self, data):
+        # data[authors] is in string format as ¨firstname lastname, firstname lastname¨
         authors = data["authors"].split(",")
+
+        # Adding the citation to the db so that it can generate id for the authors table reference.
         add_citation(data)
         citations_id = get_citation_by_title(data["title"]).id
 
@@ -18,7 +21,8 @@ class CitationService:
         citations = get_citations()
         for citation in citations:
             authors = get_authors_by_citation_id(citation.id)
-            author_string = ", ".join(authors)
+            # parsin the author data to firstname lastname, firstname lastname format
+            author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
 
         return citations

@@ -5,11 +5,13 @@ from entities.citation import Citation
 
 
 def get_citations():
-    sql = """SELECT citations.* 
-    FROM citations 
-    LEFT JOIN authors 
-    ON citations.id = authors.citation_id
-    ORDER BY authors.last_name ASC"""
+    sql = """ SELECT citations.* 
+                FROM citations 
+                LEFT JOIN authors 
+                ON citations.id = authors.citation_id
+                ORDER BY authors.last_name ASC
+                LIMIT 1
+            """
     result = db.session.execute(text(sql))
     citations = result.fetchall()
 

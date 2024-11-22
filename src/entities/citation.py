@@ -34,7 +34,10 @@ class Citation:
     def get_datalines(self):
         # This funktion returns all relevant datafields. Not including the title.
         new_dict = self._data
+        # Removing not essential field form the dictinary
         new_dict.pop("title", None)
         new_dict.pop("id", None)
         new_dict.pop("timestamp", None)
+
+        # Returning a list of keys and values
         return list((k, v) for k, v in new_dict.items())
