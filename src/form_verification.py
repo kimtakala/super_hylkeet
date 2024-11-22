@@ -15,7 +15,7 @@ def verify_author(authors):
 
     for author in authors:
         names = author.split(' ')
-        if len(names) != 2:
+        if len(names) < 2:
             return "Authors must be given in <FirstName LastName, FirstName LastName, ...> format"
 
 
