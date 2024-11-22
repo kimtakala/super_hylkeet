@@ -1,6 +1,8 @@
 from repositories.citation_repository import add_citation, get_citations, get_citation_by_title
 from repositories.authors_repository import add_author_by_citation_id, get_authors_by_citation_id
 
+from hprint import hprint
+
 
 class CitationService:
     def __init__(self):
@@ -14,8 +16,8 @@ class CitationService:
         add_citation(data)
         citations_id = get_citation_by_title(data["title"]).id
 
-        for author in authors:
-            add_author_by_citation_id(citations_id, author)
+        for i, author in enumerate(authors):
+            add_author_by_citation_id(citations_id, author, i == 0)
 
     def get_citations(self):
         citations = get_citations()
@@ -24,7 +26,6 @@ class CitationService:
             # parsin the author data to firstname lastname, firstname lastname format
             author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
-
         return citations
 
 
