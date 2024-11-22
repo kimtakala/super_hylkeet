@@ -40,7 +40,7 @@ Entering Valid Information The Citation Is Shown On Page
     Input Text  publisher  Nature
     Click Button  submit
     Title Should Be  Reference app
-    Page Should Contain  vip123
+    Page Should Contain  very scientific study
     ${value}=  Get Value  tags
     Should Be Empty  ${value}
 
