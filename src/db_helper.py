@@ -1,10 +1,29 @@
 from config import db, app
 from sqlalchemy import text
 
-table_name = "citations"
-
-COLUMN_NAMES = ["id", "key", "type", "title", "authors", "year",
+COLUMN_NAMES = ["id", "key", "type", "title", "year",
                 "pages", "volume", "publisher", "doi", "tags", "citation_url", "timestamp"]
+
+TABLE_CITATIONS = """id SERIAL PRIMARY KEY,
+                    key TEXT NOT NULL,
+                    type TEXT NOT NULL,
+                    title TEXT NOT NULL,
+                    year INT,
+                    pages TEXT,
+                    volume TEXT,
+                    publisher TEXT,
+                    doi TEXT,
+                    tags TEXT,
+                    citation_url TEXT,
+                    timestamp TEXT
+                """
+
+TABLE_AUTHROS = """id SERIAL PRIMARY KEY,
+                    citation_id INT NOT NULL,
+                    first_name TEXT,
+                    last_name TEXT,
+                    FOREIGN KEY (citation_id) REFERENCES citations(id)
+                """
 
 
 def table_exists(name):
@@ -17,55 +36,44 @@ def table_exists(name):
     )
 
     print(f"Checking if table {name} exists")
-    print(sql_table_existence)
 
     result = db.session.execute(sql_table_existence)
     return result.fetchall()[0][0]
 
 
-def reset_db():
+def reset_table(table_name):
     print(f"Clearing contents from table {table_name}")
-    sql = text(f"DELETE FROM {table_name}")
-    db.session.execute(sql)
-    sql = text(f"DELETE FROM authors")
+    sql = text(f"DELETE FROM {table_name} CASCADE")
     db.session.execute(sql)
     db.session.commit()
+
+
+def setup_table(table_name):
+    tables = {"citations": TABLE_CITATIONS, "authors": TABLE_AUTHROS}
+
+    if table_name not in tables.keys():
+        raise ValueError(f"Table name {table_name} not regognized.")
+
+    if table_exists(table_name):
+        print(f"Dropping table {table_name}.")
+        sql = text(f"DROP TABLE {table_name} CASCADE")
+        db.session.execute(sql)
+        db.session.commit()
+
+    print(f"Creating table {table_name}")
+    sql = text(f"CREATE TABLE {table_name} ({tables[table_name]})")
+    db.session.execute(sql)
+    db.session.commit()
+
+
+def reset_db():
+    reset_table("citations")
+    reset_table("authors")
 
 
 def setup_db():
-    print(f"Creating table {table_name}")
-    sql = text(
-        f"""CREATE TABLE {table_name}(
-    id SERIAL PRIMARY KEY,
-    key TEXT NOT NULL,
-    type TEXT NOT NULL,
-    title TEXT NOT NULL,
-    authors TEXT,
-    year INT,
-    pages TEXT,
-    volume TEXT,
-    publisher TEXT,
-    doi TEXT,
-    tags TEXT,
-    citation_url TEXT,
-    timestamp TEXT
-    )"""
-    )
-
-    db.session.execute(sql)
-
-    sql = text(
-        f"""CREATE TABLE authors(
-    id SERIAL PRIMARY KEY,
-    citation_id INT NOT NULL,
-    first_name TEXT,
-    last_name TEXT,
-    FOREIGN KEY (citation_id) REFERENCES citations(id)
-    )"""
-    )
-
-    db.session.execute(sql)
-    db.session.commit()
+    setup_table("citations")
+    setup_table("authors")
 
 
 if __name__ == "__main__":
