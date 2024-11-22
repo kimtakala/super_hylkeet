@@ -4,6 +4,11 @@ __pycache__/
 *.pytest_cache
 .coverage
 htmlcov/
+
+#Robot log files
 log.html
 output.xml
 report.html
+
+# robot selenium error pictures
+*.png
