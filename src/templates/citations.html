@@ -1,0 +1,22 @@
+{% for citation in listed_citations %}
+<h4 class="title" onclick="toggleDetails('details_{{ loop.index }}')">
+    {{ citation.get_title() }}, kirjailija, vuosi
+</h4>
+<div id="details_{{ loop.index }}" class="details" style="display: none;">
+    {% for data_line in citation.get_datalines() %}
+    <p><strong>{{ data_line[0] }}:</strong> {{ data_line[1] }}</p>
+    {% endfor %}
+</div>
+{% endfor %}
+
+
+<script>
+    function toggleDetails(id) {
+        var details = document.getElementById(id);
+        if (details.style.display === "none") {
+            details.style.display = "block";
+        } else {
+            details.style.display = "none";
+        }
+    }
+</script>
