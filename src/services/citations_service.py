@@ -14,8 +14,8 @@ class CitationService:
         add_citation(data)
         citations_id = get_citation_by_title(data["title"]).id
 
-        for author in authors:
-            add_author_by_citation_id(citations_id, author)
+        for i, author in enumerate(authors):
+            add_author_by_citation_id(citations_id, author, i == 0)
 
     def get_citations(self):
         citations = get_citations()
@@ -24,7 +24,6 @@ class CitationService:
             # parsin the author data to firstname lastname, firstname lastname format
             author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
-
         return citations
 
 

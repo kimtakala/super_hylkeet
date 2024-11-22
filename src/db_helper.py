@@ -22,6 +22,7 @@ TABLE_AUTHROS = """id SERIAL PRIMARY KEY,
                     citation_id INT NOT NULL,
                     first_name TEXT,
                     last_name TEXT,
+                    main_author BOOLEAN,
                     FOREIGN KEY (citation_id) REFERENCES citations(id)
                 """
 
