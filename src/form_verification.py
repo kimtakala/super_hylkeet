@@ -20,15 +20,15 @@ def verify_title(title):
 def verify_year(year):
     if len(year) == 0:
         return "Year field is mandatory"
-    
+
     year = int(year)
 
     if year < 0:
         return "Year must be a positive integer"
-    
+
     if year > 2050:
         return "Year must be smaller than 2050"
-    
+
 
 def verify_booktitle(title):
     if len(title) > 200:

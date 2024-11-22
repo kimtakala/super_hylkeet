@@ -11,7 +11,7 @@ def get_authors_by_citation_id(id):
     )
     authors = result.fetchall()
 
-    return [f"{a[0]} {a[1]}" for a in authors]
+    return authors
 
 
 def add_author_by_citation_id(id, author):

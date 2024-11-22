@@ -19,56 +19,8 @@ Reference app
 {{ success }}
 {% endif %}
 
-<div>
-  <form action="/add_citation" method="post">
-    <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title" required><br><br>
+{% include 'form.html' %}
 
-    <label for="key">Key:</label><br>
-    <input type="text" id="key" name="key" required><br><br>
+{% include 'citations.html' %}
 
-    <label for="authors">Authors:</label><br>
-    <input type="text" id="authors" name="authors" required><br><br>
-
-    <label for="year">Year:</label><br>
-    <input type="number" id="year" name="year"><br><br>
-
-    <label for="type">Type:</label><br>
-    <select id="type" name="type" required>
-      <option value="book">Book</option>
-      <option value="article">Article</option>
-      <option value="other">Other</option>
-    </select><br><br>
-
-    <label for="doi">DOI:</label><br>
-    <input type="text" id="doi" name="doi"><br><br>
-
-    <label for="pages">Pages:</label><br>
-    <input type="text" id="pages" name="pages"><br><br>
-
-    <label for="volume">Volume:</label><br>
-    <input type="text" id="volume" name="volume"><br><br>
-
-    <label for="publisher">Publisher:</label><br>
-    <input type="text" id="publisher" name="publisher"><br><br>
-
-    <label for="tags">Tags:</label><br>
-    <input type="text" id="tags" name="tags"><br><br>
-
-    <label for="citation_url">citaion_url:</label><br>
-    <input type="text" id="citation_url" name="citation_url"><br><br>
-
-    <button type="submit" id="submit">Submit</button>
-  </form>
-</div>
-<ul>
-{% for citation in listed_citations %}
-      <li><h4>{{citation.get_title()}}</h4></li>
-      <ul>
-        {% for data_line in citation.get_datalines() %}
-          <li>{{data_line[0]}}:{{data_line[1]}}</li>
-        {% endfor %}
-    </ul>
-{% endfor %}
-</ul>
 {% endblock %}

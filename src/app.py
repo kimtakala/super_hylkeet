@@ -1,5 +1,5 @@
 from form_verification import validate_citations
-from citations_service import citation_service
+from services.citations_service import citation_service
 from flask import render_template, jsonify, request
 from db_helper import reset_db
 from config import app, test_env
