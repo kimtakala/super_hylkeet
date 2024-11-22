@@ -15,7 +15,7 @@ def get_authors_by_citation_id(id):
 
 
 def add_author_by_citation_id(id, author):
-    first_name, last_name = author.split(" ", 1)
+    first_name, last_name = author.split(" ")
     sql = text(
         "INSERT INTO authors (citation_id, first_name, last_name) VALUES (:id, :first_name, :last_name)")
     db.session.execute(

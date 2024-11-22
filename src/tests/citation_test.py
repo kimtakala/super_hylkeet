@@ -25,7 +25,6 @@ class CitationStub:
             "Testkey",
             "article",
             "Test title",
-            "Test author",
             2024,
             12,
             22,
@@ -53,7 +52,6 @@ class TestCitation(unittest.TestCase):
             "key",
             "type",
             "title",
-            "authors",
             "year",
             "pages",
             "volume",
@@ -69,7 +67,6 @@ class TestCitation(unittest.TestCase):
         expected_datalines = [
             ("key", "Testkey"),
             ("type", "article"),
-            ("authors", "Test author"),
             ("year", 2024),
             ("pages", 12),
             ("volume", 22),
