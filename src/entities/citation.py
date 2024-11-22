@@ -1,5 +1,4 @@
 from db_helper import COLUMN_NAMES
-from repositories.authors_repository import get_authors_by_citation_id
 
 
 class Citation:
@@ -27,6 +26,9 @@ class Citation:
 
     def get_title(self):
         return self._data["title"]
+
+    def get_year(self):
+        return self._data["year"]
 
     def add_authors(self, authors):
         self._data["authors"] = authors
