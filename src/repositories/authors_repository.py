@@ -1,8 +1,6 @@
 from sqlalchemy import text
 from config import db
 
-from hprint import hprint
-
 
 def get_authors_by_citation_id(id):
     sql = text(
@@ -13,7 +11,6 @@ def get_authors_by_citation_id(id):
         {"id": id}
     )
     authors = result.fetchall()
-    hprint(authors)
 
     return authors
 

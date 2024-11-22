@@ -1,8 +1,6 @@
 from repositories.citation_repository import add_citation, get_citations, get_citation_by_title
 from repositories.authors_repository import add_author_by_citation_id, get_authors_by_citation_id
 
-from hprint import hprint
-
 
 class CitationService:
     def __init__(self):
