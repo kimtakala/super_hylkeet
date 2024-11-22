@@ -13,7 +13,7 @@ class TestFormVerification(unittest.TestCase):
 
 
     def test_author(self):
-        authors = ["Peruna", "Porkkana" * 100]
+        authors = ["Peruna, Pottu", "Porkkana" * 100]
 
         self.assert_first_is_none_others_is_not_none(authors, form_verification.verify_author)
 
