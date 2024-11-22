@@ -11,7 +11,7 @@ def verify_author(authors):
     if len(authors) > 200:
         return "Authors field must include less than 200 characters"
     
-    authors = authors.split(',')
+    authors = authors.split(', ')
 
     for author in authors:
         names = author.split(' ')
