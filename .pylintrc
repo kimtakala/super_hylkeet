@@ -1,6 +1,7 @@
 [MASTER]
 
 ignore=tests
+fail-under=8.0
 
 [MESSAGE CONTROL]
 
@@ -17,9 +18,11 @@ disable=raw-checker-failed,
         missing-class-docstring
 
 [FORMAT]
+
 max-line-length=88
 
 [REFACTORING]
 
 [DESIGN]
+
 max-args=5
