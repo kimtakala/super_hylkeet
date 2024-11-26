@@ -60,7 +60,7 @@ def table_exists(name):
 
 def reset_table(table_name):
     print(f"Clearing contents from table {table_name}")
-    sql = text(f"DELETE FROM {table_name} CASCADE")
+    sql = text(f"DELETE FROM {table_name}")
     db.session.execute(sql)
     db.session.commit()
 
@@ -84,8 +84,8 @@ def setup_table(table_name):
 
 
 def reset_db():
-    reset_table("citations")
     reset_table("authors")
+    reset_table("citations")
 
 
 def setup_db():
