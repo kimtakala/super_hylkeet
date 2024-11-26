@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run pylint tests
-        run: poetry run pylint src
+        run: poetry run pylint --rcfile=.pylintrc src/
       - name: Run unit tests
         run: poetry run pytest
       - name: Run robot tests
