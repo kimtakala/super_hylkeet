@@ -2,6 +2,13 @@
     <button type="button" class="collapsible">Add a reference</button>
     <div class="input_form" style="display: none;">
         <form action="/add_citation" method="post">
+            <label for="type">Type:</label><br>
+            <select id="type" name="type" required>
+                <option value="book">Book</option>
+                <option value="article">Article</option>
+                <option value="other">Other</option>
+            </select><br><br>
+
             <label for="title">Title:</label><br>
             <input type="text" id="title" name="title" required><br><br>
 
@@ -14,12 +21,6 @@
             <label for="year">Year:</label><br>
             <input type="number" id="year" name="year"><br><br>
 
-            <label for="type">Type:</label><br>
-            <select id="type" name="type" required>
-                <option value="book">Book</option>
-                <option value="article">Article</option>
-                <option value="other">Other</option>
-            </select><br><br>
 
             <label for="doi">DOI:</label><br>
             <input type="text" id="doi" name="doi"><br><br>
