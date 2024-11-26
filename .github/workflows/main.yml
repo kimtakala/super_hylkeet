@@ -5,12 +5,12 @@ on:
     branches:
       - main
       - form
-      - sprint2
+      - sprint*
   pull_request:
     branches:
       - main
       - form
-      - sprint2
+      - sprint*
 
 jobs:
   build:
