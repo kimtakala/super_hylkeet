@@ -11,6 +11,7 @@ Page Loads
 
 Entering Valid Information The Citation Is Accepted
     Go To  ${HOME_URL}
+    Click Button  reference
     Input Text  title  scientific study
     Input Text  key  123
     Input Text  authors  Hylkeet et. al.
