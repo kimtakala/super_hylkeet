@@ -1,13 +1,15 @@
 from repositories.citation_repository import add_citation, get_citations, get_citation_by_title
 from repositories.authors_repository import add_author_by_citation_id, get_authors_by_citation_id
 from config import db
+from db_helper import COLUMN_NAMES
 
 
 class CitationService:
     def __init__(self):
         pass
 
-    def add_citation(self, data):
+    def add_citation(self, raw_data):
+        data = self.fill_data_with_nones(raw_data)
         # data[authors] is in string format as ¨firstname lastname, firstname lastname¨
         authors = data["authors"].split(", ")
 
@@ -29,6 +31,16 @@ class CitationService:
             author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
         return citations
+
+    def fill_data_with_nones(self, data):
+        data = data.to_dict()
+        required_fields = [val for val in COLUMN_NAMES]
+        required_fields.remove("id")
+        required_fields.remove("timestamp")
+        for field in required_fields:
+            if field not in data:
+                data[field] = None
+        return data
 
 
 citation_service = CitationService()
