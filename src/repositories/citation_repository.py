@@ -23,7 +23,18 @@ def get_citation_by_title(title):
     return citation
 
 
+def check_if_exists(title):
+    try:
+        get_citation_by_title(title)
+        return True
+    except TypeError:
+        return False
+
+
 def add_citation(data):
+    if check_if_exists(data["title"]):
+        raise ValueError(
+            "Entry alrady added. Can't have two citations with same names.")
     sql = text(
         """INSERT INTO citations 
             (title, key,  year, type, doi, pages, volume, publisher, tags, booktitle, citation_url, timestamp) 
