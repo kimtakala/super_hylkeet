@@ -12,16 +12,17 @@ Page Loads
 Entering Valid Information The Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
+    Select From List By Value  type  article
     Input Text  title  scientific study
     Input Text  key  123
     Input Text  authors  Hylkeet et. al.
     Input Text  year  1234
-    Select From List By Value  type  article
     Input Text  doi  www.da_doih.fi/123/
     Input Text  pages  123
     Input Text  volume  13.
     Input Text  publisher  Nature
     Input Text  tags  animals, wild
+    Input Text  citation_url  www.abcd.efg/hijkl
     Textfield Value Should Be  tags  animals, wild
     Click Button  submit
     Title Should Be  Reference app
@@ -30,11 +31,12 @@ Entering Valid Information The Citation Is Accepted
 
 Entering Valid Information The Citation Is Shown On Page
     Go To  ${HOME_URL}
+    Click Button  reference
+    Select From List By Value  type  article
     Input Text  title  very scientific study
     Input Text  key  vip123
     Input Text  authors  Hylkeet et. al. et. co.
     Input Text  year  2001
-    Select From List By Value  type  article
     Input Text  doi  www.da_doih.fi/123/666
     Input Text  pages  124
     Input Text  volume  12.
