@@ -26,9 +26,9 @@ def get_citation_by_title(title):
 def add_citation(data):
     sql = text(
         """INSERT INTO citations 
-            (title, key,  year, type, doi, pages, volume, publisher, tags, citation_url, timestamp) 
+            (title, key,  year, type, doi, pages, volume, publisher, tags, booktitle, citation_url, timestamp) 
             VALUES 
-            (:title, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags, :citation_url, CURRENT_TIMESTAMP)"""
+            (:title, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags, :booktitle, :citation_url, CURRENT_TIMESTAMP)"""
     )
     db.session.execute(
         sql,
@@ -42,6 +42,7 @@ def add_citation(data):
             "volume": data["volume"],
             "publisher": data["publisher"],
             "tags": data["tags"],
+            "booktitle": data["booktitle"],
             "citation_url": data["citation_url"],
         },
     )

@@ -1,24 +1,40 @@
 from config import db, app
 from sqlalchemy import text
 
-COLUMN_NAMES = ["id", "key", "type", "title", "year",
-                "pages", "volume", "publisher", "doi", "tags", "citation_url", "timestamp"]
+COLUMN_NAMES = [
+    "id",
+    "key",
+    "type",
+    "title",
+    "year",
+    "pages",
+    "volume",
+    "publisher",
+    "doi",
+    "tags",
+    "booktitle",
+    "citation_url",
+    "timestamp"
+]
 
-TABLE_CITATIONS = """id SERIAL PRIMARY KEY,
-                    key TEXT NOT NULL,
-                    type TEXT NOT NULL,
-                    title TEXT NOT NULL,
+TABLE_CITATIONS = """
+                    id SERIAL PRIMARY KEY,
+                    key TEXT,
+                    type TEXT,
+                    title TEXT,
                     year INT,
                     pages TEXT,
                     volume TEXT,
                     publisher TEXT,
                     doi TEXT,
                     tags TEXT,
+                    booktitle TEXT,
                     citation_url TEXT,
                     timestamp TEXT
                 """
 
-TABLE_AUTHROS = """id SERIAL PRIMARY KEY,
+TABLE_AUTHROS = """
+                    id SERIAL PRIMARY KEY,
                     citation_id INT NOT NULL,
                     first_name TEXT,
                     last_name TEXT,
