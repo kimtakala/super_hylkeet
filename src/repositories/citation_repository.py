@@ -34,7 +34,7 @@ def check_if_exists(title):
 def add_citation(data):
     if check_if_exists(data["title"]):
         raise ValueError(
-            "Entry alrady added. Can't have two citations with same names.")
+            "Entry already added. Can't have two citations with same names.")
     sql = text(
         """INSERT INTO citations 
             (title, key,  year, type, doi, pages, volume,
