@@ -1,5 +1,5 @@
-from config import db, app
 from sqlalchemy import text
+from config import db, app
 
 COLUMN_NAMES = [
     "id",
@@ -68,7 +68,7 @@ def reset_table(table_name):
 def setup_table(table_name):
     tables = {"citations": TABLE_CITATIONS, "authors": TABLE_AUTHROS}
 
-    if table_name not in tables.keys():
+    if table_name not in tables:
         raise ValueError(f"Table name {table_name} not regognized.")
 
     if table_exists(table_name):

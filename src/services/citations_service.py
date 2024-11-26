@@ -1,5 +1,7 @@
-from repositories.citation_repository import add_citation, get_citations, get_citation_by_title
-from repositories.authors_repository import add_author_by_citation_id, get_authors_by_citation_id
+from repositories.citation_repository \
+    import add_citation, get_citations, get_citation_by_title
+from repositories.authors_repository \
+    import add_author_by_citation_id, get_authors_by_citation_id
 from config import db
 from db_helper import COLUMN_NAMES
 
@@ -13,14 +15,16 @@ class CitationService:
         # data[authors] is in string format as ¨firstname lastname, firstname lastname¨
         authors = data["authors"].split(", ")
 
-        # Adding the citation to the db so that it can generate id for the authors table reference.
+        # Adding the citation to the db so that
+        # it can generate id for the authors table reference.
         add_citation(data)
         citations_id = get_citation_by_title(data["title"]).id
 
         for i, author in enumerate(authors):
             add_author_by_citation_id(citations_id, author, i == 0)
 
-        # DB commit here so that if one of the add functions throws error, the others wont be commited.
+        # DB commit here so that if one of the add functions throws error,
+        # the others wont be commited.
         db.session.commit()
 
     def get_citations(self):
@@ -34,7 +38,7 @@ class CitationService:
 
     def fill_data_with_nones(self, data):
         data = data.to_dict()
-        required_fields = [val for val in COLUMN_NAMES]
+        required_fields = list(COLUMN_NAMES)
         required_fields.remove("id")
         required_fields.remove("timestamp")
         for field in required_fields:

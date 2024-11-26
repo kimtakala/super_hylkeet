@@ -5,9 +5,9 @@ from entities.citation import Citation
 
 
 def get_citations():
-    sql = """ SELECT citations.* FROM citations 
-                LEFT JOIN authors ON citations.id = authors.citation_id 
-                WHERE authors.main_author = true 
+    sql = """   SELECT citations.* FROM citations
+                LEFT JOIN authors ON citations.id = authors.citation_id
+                WHERE authors.main_author = true
                 ORDER BY authors.last_name ASC
             """
     result = db.session.execute(text(sql))
@@ -37,9 +37,11 @@ def add_citation(data):
             "Entry alrady added. Can't have two citations with same names.")
     sql = text(
         """INSERT INTO citations 
-            (title, key,  year, type, doi, pages, volume, publisher, tags, booktitle, citation_url, timestamp) 
+            (title, key,  year, type, doi, pages, volume,
+            publisher, tags, booktitle, citation_url, timestamp) 
             VALUES 
-            (:title, :key, :year, :type, :doi, :pages, :volume, :publisher, :tags, :booktitle, :citation_url, CURRENT_TIMESTAMP)"""
+            (:title, :key, :year, :type, :doi, :pages, :volume,
+            :publisher, :tags, :booktitle, :citation_url, CURRENT_TIMESTAMP)"""
     )
     db.session.execute(
         sql,
