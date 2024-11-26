@@ -34,6 +34,8 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
       - name: Install dependencies
         run: poetry install
+      - name: Run pylint tests
+        run: poetry run pylint src
       - name: Run unit tests
         run: poetry run pytest
       - name: Run robot tests
