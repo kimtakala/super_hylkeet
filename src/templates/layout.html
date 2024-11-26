@@ -7,9 +7,27 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>{% block title %}{% endblock %}</title>
 </head>
+<header>
+  <h1>
+    <span class="letter">C</span>
+    <span class="letter">i</span>
+    <span class="letter">t</span>
+    <span class="letter">a</span>
+    <span class="letter">t</span>
+    <span class="letter">i</span>
+    <span class="letter">o</span>
+    <span class="letter">n</span>
+    <span class="letter"> </span>
+    <span class="letter">A</span>
+    <span class="letter">p</span>
+    <span class="letter">p</span>
+  </h1>
+</header>
 
 <body>
-  {% block body %}{% endblock %}
+  <div class="content">
+    {% block body %}{% endblock %}
+  </div>
 </body>
 
 </html>
