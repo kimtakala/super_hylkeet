@@ -2,7 +2,7 @@
 
 {% for citation in listed_citations %}
 <h4 class="title" onclick="toggleDetails('details_{{ loop.index }}')">
-    {{ citation.get_title() }}, kirjailija, {{ citation.get_year() }}
+    {{ citation.get_authors_for_listing() }}: {{ citation.get_title() }}, {{ citation.get_year() }}
 </h4>
 <div id="details_{{ loop.index }}" class="details" style="display: none;">
     {% for data_line in citation.get_datalines() %}

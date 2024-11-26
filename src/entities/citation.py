@@ -1,4 +1,5 @@
 from db_helper import COLUMN_NAMES
+from repositories import authors_repository
 
 
 class Citation:
@@ -43,3 +44,7 @@ class Citation:
 
         # Returning a list of keys and values
         return list((k, v) for k, v in new_dict.items())
+
+    def get_authors_for_listing(self):
+        authors = authors_repository.get_authors_for_citation_listing(self._data["id"])
+        return authors
