@@ -1,5 +1,6 @@
 from repositories.citation_repository import add_citation, get_citations, get_citation_by_title
 from repositories.authors_repository import add_author_by_citation_id, get_authors_by_citation_id
+from config import db
 
 
 class CitationService:
@@ -16,6 +17,9 @@ class CitationService:
 
         for i, author in enumerate(authors):
             add_author_by_citation_id(citations_id, author, i == 0)
+
+        # DB commit here so that if one of the add functions throws error, the others wont be commited.
+        db.session.commit()
 
     def get_citations(self):
         citations = get_citations()
