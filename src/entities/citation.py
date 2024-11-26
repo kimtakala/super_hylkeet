@@ -38,6 +38,7 @@ class Citation:
         # This funktion returns all relevant datafields. Not including the title.
         new_dict = self._data
         # Removing not essential field form the dictinary
+        # Basicly these field are not shown in the fronend dropdown.
         new_dict.pop("title", None)
         new_dict.pop("id", None)
         new_dict.pop("timestamp", None)
@@ -46,5 +47,6 @@ class Citation:
         return list((k, v) for k, v in new_dict.items())
 
     def get_authors_for_listing(self):
-        authors = authors_repository.get_authors_for_citation_listing(self._data["id"])
+        authors = authors_repository.get_authors_for_citation_listing(
+            self._data["id"])
         return authors
