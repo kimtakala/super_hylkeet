@@ -1,3 +1,4 @@
 {
-    "robot.pythonpath": ["${workspaceFolder}/.venv/lib/python3.10/site-packages/SeleniumLibrary"]
+    "robot.pythonpath": ["${workspaceFolder}/.venv/lib/python3.10/site-packages/SeleniumLibrary"],
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python3.10"
 }
