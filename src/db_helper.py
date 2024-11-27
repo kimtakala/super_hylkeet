@@ -22,7 +22,7 @@ TABLE_CITATIONS = """
                     key TEXT,
                     type TEXT,
                     title TEXT,
-                    year INT,
+                    year TEXT,
                     pages TEXT,
                     volume TEXT,
                     publisher TEXT,

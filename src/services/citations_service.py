@@ -14,7 +14,10 @@ class CitationService:
 
     def add_citation(self, data):
         # data[authors] is in string format as ¨firstname lastname, firstname lastname¨
-        authors = data["authors"].split(", ")
+        if data["authors"] != "":
+            authors = data["authors"].split(", ")
+        else:
+            authors = ["No author"]
 
         # Adding the citation to the db so that
         # it can generate id for the authors table reference.

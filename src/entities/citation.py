@@ -26,9 +26,13 @@ class Citation:
         return self._data.keys()
 
     def get_title(self):
+        if "title" not in self._data:
+            return "No Title"
         return self._data["title"]
 
     def get_year(self):
+        if "year" not in self._data:
+            return "No Year"
         return self._data["year"]
 
     def add_authors(self, authors):
