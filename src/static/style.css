@@ -36,6 +36,17 @@ h2 {
 
 }
 
+.blackletter {
+    display: inline-block;
+    color: #1d1d1d;
+    margin: 3px;
+    font-size: 30px;
+    padding: 0;
+    text-shadow: 0px 0px 1.5px #373737;
+
+
+}
+
 .letter {
     display: inline-block;
     margin: 3px;
@@ -101,4 +112,9 @@ h2 {
 .letter:nth-child(12) {
     color: #4C9FFF;
     text-shadow: 0px 0px 2px #4C9FFF;
+}
+
+.letter:nth-child(13) {
+    color: #5A4D98;
+    text-shadow: 0px 0px 2px #5A4D98;
 }
