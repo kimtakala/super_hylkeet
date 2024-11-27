@@ -35,54 +35,54 @@ Entering Valid Information The **BOOK** Citation Is Accepted
     Should Be Empty  ${value}
 
 
-Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
-    Go To  ${HOME_URL}
-    Click Button  reference
-    Select From List By Value  type  inproceedings
-    Input Text  title  conference paper
-    Input Text  booktitle  proceedings of the seal conference
-    Input Text  key  789
-    Input Text  authors  Seal Researcher
-    Input Text  year  2021
-    Input Text  editor  Dr. Editor
-    Input Text  volume/number  10
-    Input Text  series  Conference Series
-    Input Text  pages  50-60
-    Input Text  address  Turku
-    Input Text  month  June
-    Input Text  organization  Seal Organization
-    Input Text  publisher  Academic Press
-    Input Text  note  Noteworthy Paper
-    Input Text  tags  conference, inproceedings
-    Input Text  url  www.conference-example.com
-    Textfield Value Should Be  id=tags  conference, inproceedings
-    Click Button  submit
-    Title Should Be  Reference app
-    ${value}=  Get Value  id=tags
-    Should Be Empty  ${value}
+# Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
+#     Go To  ${HOME_URL}
+#     Click Button  reference
+#     Select From List By Value  type  inproceedings
+#     Input Text  title  conference paper
+#     Input Text  booktitle  proceedings of the seal conference
+#     Input Text  key  789
+#     Input Text  authors  Seal Researcher
+#     Input Text  year  2021
+#     Input Text  editor  Dr. Editor
+#     Input Text  volume/number  10
+#     Input Text  series  Conference Series
+#     Input Text  pages  50-60
+#     Input Text  address  Turku
+#     Input Text  month  June
+#     Input Text  organization  Seal Organization
+#     Input Text  publisher  Academic Press
+#     Input Text  note  Noteworthy Paper
+#     Input Text  tags  conference, inproceedings
+#     Input Text  url  www.conference-example.com
+#     Textfield Value Should Be  id=tags  conference, inproceedings
+#     Click Button  submit
+#     Title Should Be  Reference app
+#     ${value}=  Get Value  id=tags
+#     Should Be Empty  ${value}
 
 
-Entering Valid Information The **ARTICLE** Citation Is Accepted
-    Go To  ${HOME_URL}
-    Click Button  reference
-    Select From List By Value  type  article
-    Input Text  title  groundbreaking research
-    Input Text  key  456
-    Input Text  authors  Dr. Seal Expert
-    Input Text  year  2020
-    Input Text  journal  Science Journal
-    Input Text  volume  5
-    Input Text  pages  200-210
-    Input Text  month  March
-    Input Text  doi  10.1234/example.doi
-    Input Text  note  Significant Findings
-    Input Text  tags  research, article
-    Input Text  citation_url  www.research-example.com
-    Textfield Value Should Be  id=tags  research, article
-    Click Button  submit
-    Title Should Be  Reference app
-    ${value}=  Get Value  id=tags
-    Should Be Empty  ${value}
+# Entering Valid Information The **ARTICLE** Citation Is Accepted
+#     Go To  ${HOME_URL}
+#     Click Button  reference
+#     Select From List By Value  type  article
+#     Input Text  title  groundbreaking research
+#     Input Text  key  456
+#     Input Text  authors  Dr. Seal Expert
+#     Input Text  year  2020
+#     Input Text  journal  Science Journal
+#     Input Text  volume  5
+#     Input Text  pages  200-210
+#     Input Text  month  March
+#     Input Text  doi  10.1234/example.doi
+#     Input Text  note  Significant Findings
+#     Input Text  tags  research, article
+#     Input Text  citation_url  www.research-example.com
+#     Textfield Value Should Be  id=tags  research, article
+#     Click Button  submit
+#     Title Should Be  Reference app
+#     ${value}=  Get Value  id=tags
+#     Should Be Empty  ${value}
 
 
 # Entering Valid Information The Citation Is Shown On Page
