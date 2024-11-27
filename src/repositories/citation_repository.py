@@ -49,7 +49,7 @@ def add_citation(data):
             "title": data["title"],
             "key": data["key"],
             "year": data["year"],
-            "type": data["doi"],
+            "type": data["type"],
             "doi": data["doi"],
             "pages": data["pages"],
             "volume": data["volume"],
