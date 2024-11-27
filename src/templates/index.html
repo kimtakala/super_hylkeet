@@ -13,13 +13,13 @@ Reference app
 </ul>
 {% endif %}
 
-{% if success %}
-{{ success }}
-{% endif %}
 {% include 'form.html' %}
 
 <br>
-
+{% if success %}
+{{ success }}
+{% endif %}
+<br>
 {% include 'citations.html' %}
 
 {% endblock %}
