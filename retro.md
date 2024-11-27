@@ -1,3 +1,12 @@
+# Tehtävänanto:
+
+Sprintin 2 päätteeksi tulee pitää retrospektiivi
+Retrospektiivista tulee kirjoittaa lyhyet muistiinpanot projektin repositorion juureen laitettavaan tiedostoon retro.md
+Retrospektiivissa havaituista asioista tulee identifioida vähintään kaksi kehitystoimenpidettä, eli asiaa joissa tiimi yrittää parantaa toimintaa seuraavassa sprintissä
+kehitystoimenpiteet pitää kirjata retrospektiivin muistiinpanoihin
+
+Pidä huoli siitä, että miniprojektitiimisi pitää ensimmäisen tai toisen sprintin lopussa jompaa kumpaa tekniikkaa noudattavan retrospektiivin!
+
 # Glad, Sad, Mad POHJA
 
 ## Käyttötarkoitus:  
