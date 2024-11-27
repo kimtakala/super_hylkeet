@@ -106,24 +106,24 @@ h2 {
 div.sticky {
     position: sticky;
     top: 0px;
+    padding-top: 10px;
+    background-color: #f7f7f7;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
 }
 
 div.button_and_form {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #f7f7f7;
-}
-
-div.gradient {
-    background-image: linear-gradient(0deg, rgba(247, 247, 247, 0), rgba(247, 247, 247, 1));
-    height: 15px;
+    background-color: #efefef;
+    padding: 15px;
+    border-radius: 13px;
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 div.input_form {
     margin-top: 15px;
     width: auto;
     padding: 15px;
-    background-color: #f2f2f2;
+    background-color: #e9e9e9;
     border-radius: 10px;
     box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
