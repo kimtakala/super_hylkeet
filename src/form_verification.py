@@ -30,7 +30,7 @@ def verify_title(title):
 
 
 def verify_year(year):
-    if year is not "":
+    if year != "":
         year = int(year)
 
         if year < 0:
@@ -104,7 +104,8 @@ def validate_citations(citation):
 
     # Move all not empty not required field from checks to errors.
     for k, v in citation.items():
-        if v != "" and k not in required_fields[citation["type"]] and k in checks.keys() and checks[k]:
+        if v != "" and k not in required_fields[citation["type"]]\
+            and k in checks and checks[k]:
             errors[k] = checks[k]
 
     return errors
