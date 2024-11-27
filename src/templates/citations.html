@@ -1,0 +1,27 @@
+<h2>Citations</h2>
+
+{% for citation in listed_citations %}
+<h4 class="title" onclick="toggleDetails('details_{{ loop.index }}', 'arrow_{{ loop.index }}')">
+    <span id="arrow_{{ loop.index }}">&#x25B6;</span>
+    {{ citation.get_authors_for_listing() }}: {{ citation.get_title() }}, {{ citation.get_year() }}
+</h4>
+<div id="details_{{ loop.index }}" class="details" style="display: none;">
+    {% for data_line in citation.get_datalines() %}
+    <p><strong>{{ data_line[0] }}:</strong> {{ data_line[1] }}</p>
+    {% endfor %}
+</div>
+{% endfor %}
+
+<script>
+    function toggleDetails(detailsId, arrowId) {
+        var details = document.getElementById(detailsId);
+        var arrow = document.getElementById(arrowId);
+        if (details.style.display === "none") {
+            details.style.display = "block";
+            arrow.innerHTML = "&#x25BC;";
+        } else {
+            details.style.display = "none";
+            arrow.innerHTML = "&#x25B6;";
+        }
+    }
+</script>

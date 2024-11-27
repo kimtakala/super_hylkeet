@@ -40,3 +40,10 @@ Käynnistä sovellus komennolla:
 ````
 python3 src/index.py
 ````
+
+### Valmiin määritelmä
+
+Ryhmämme määrittää ominaisuuden valmiiksi kun se:
+- toimii halutulla tavalla
+- on testattu
+- on integroitu sovellukseen onnistuneesti

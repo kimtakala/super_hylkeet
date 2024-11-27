@@ -1,21 +1,6 @@
 import unittest
 from entities.citation import Citation
-
-COLUMN_NAMES = [
-    "id",
-    "key",
-    "type",
-    "title",
-    "authors",
-    "year",
-    "pages",
-    "volume",
-    "publisher",
-    "doi",
-    "tags",
-    "citation_url",
-    "timestamp",
-]
+from db_helper import COLUMN_NAMES
 
 
 class CitationStub:
@@ -25,13 +10,13 @@ class CitationStub:
             "Testkey",
             "article",
             "Test title",
-            "Test author",
             2024,
             12,
             22,
             "Test publisher",
             "Test doi",
             "Test tags",
+            "test booktitle",
             "Test url",
             "2024-11-19",
         ]
@@ -48,34 +33,17 @@ class TestCitation(unittest.TestCase):
         self.assertEqual(title, "Test title")
 
     def test_get_entrys(self):
-        expected_keys = {
-            "id",
-            "key",
-            "type",
-            "title",
-            "authors",
-            "year",
-            "pages",
-            "volume",
-            "publisher",
-            "doi",
-            "tags",
-            "citation_url",
-            "timestamp",
-        }
-        self.assertSetEqual(set(self.citation.get_entrys()), expected_keys)
+        self.assertListEqual(
+            list(self.citation.get_entrys()), COLUMN_NAMES)
 
     def test_get_datalines(self):
-        expected_datalines = [
-            ("key", "Testkey"),
-            ("type", "article"),
-            ("authors", "Test author"),
-            ("year", 2024),
-            ("pages", 12),
-            ("volume", 22),
-            ("publisher", "Test publisher"),
-            ("doi", "Test doi"),
-            ("tags", "Test tags"),
-            ("citation_url", "Test url"),
-        ]
+        data = self.stub.get_citation()
+        expected_datalines = [(COLUMN_NAMES[i], data[i])
+                              for i in range(len(COLUMN_NAMES))]
+
+        # Pop fields id, title and timestamp
+        expected_datalines.pop(0)
+        expected_datalines.pop(2)
+        expected_datalines.pop(10)
+
         self.assertEqual(self.citation.get_datalines(), expected_datalines)

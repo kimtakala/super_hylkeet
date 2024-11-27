@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>{% block title %}{% endblock %}</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<header>
+  <h1><span class="blackletter">\cite{</span><span class="letter">C</span>
+    <span class="letter">i</span>
+    <span class="letter">t</span>
+    <span class="letter">a</span>
+    <span class="letter">t</span>
+    <span class="letter">i</span>
+    <span class="letter">o</span>
+    <span class="letter">n</span>
+    <span class="letter"> </span>
+    <span class="letter">A</span>
+    <span class="letter">p</span>
+    <span class="letter">p</span><span class="blackletter">}</span>
+  </h1>
+</header>
+
+<body>
+  <div class="content">
     {% block body %}{% endblock %}
-  </body>
+  </div>
+</body>
+
 </html>

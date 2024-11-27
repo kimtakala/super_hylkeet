@@ -1,27 +1,44 @@
-from config import db, app
 from sqlalchemy import text
+from config import db, app
 
-COLUMN_NAMES = ["id", "key", "type", "title", "year",
-                "pages", "volume", "publisher", "doi", "tags", "citation_url", "timestamp"]
+COLUMN_NAMES = [
+    "id",
+    "key",
+    "type",
+    "title",
+    "year",
+    "pages",
+    "volume",
+    "publisher",
+    "doi",
+    "tags",
+    "booktitle",
+    "citation_url",
+    "timestamp"
+]
 
-TABLE_CITATIONS = """id SERIAL PRIMARY KEY,
-                    key TEXT NOT NULL,
-                    type TEXT NOT NULL,
-                    title TEXT NOT NULL,
-                    year INT,
+TABLE_CITATIONS = """
+                    id SERIAL PRIMARY KEY,
+                    key TEXT,
+                    type TEXT,
+                    title TEXT,
+                    year TEXT,
                     pages TEXT,
                     volume TEXT,
                     publisher TEXT,
                     doi TEXT,
                     tags TEXT,
+                    booktitle TEXT,
                     citation_url TEXT,
                     timestamp TEXT
                 """
 
-TABLE_AUTHROS = """id SERIAL PRIMARY KEY,
+TABLE_AUTHROS = """
+                    id SERIAL PRIMARY KEY,
                     citation_id INT NOT NULL,
                     first_name TEXT,
                     last_name TEXT,
+                    main_author BOOLEAN,
                     FOREIGN KEY (citation_id) REFERENCES citations(id)
                 """
 
@@ -43,7 +60,7 @@ def table_exists(name):
 
 def reset_table(table_name):
     print(f"Clearing contents from table {table_name}")
-    sql = text(f"DELETE FROM {table_name} CASCADE")
+    sql = text(f"DELETE FROM {table_name}")
     db.session.execute(sql)
     db.session.commit()
 
@@ -51,7 +68,7 @@ def reset_table(table_name):
 def setup_table(table_name):
     tables = {"citations": TABLE_CITATIONS, "authors": TABLE_AUTHROS}
 
-    if table_name not in tables.keys():
+    if table_name not in tables:
         raise ValueError(f"Table name {table_name} not regognized.")
 
     if table_exists(table_name):
@@ -67,8 +84,8 @@ def setup_table(table_name):
 
 
 def reset_db():
-    reset_table("citations")
     reset_table("authors")
+    reset_table("citations")
 
 
 def setup_db():

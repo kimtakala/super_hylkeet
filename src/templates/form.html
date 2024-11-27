@@ -1,0 +1,74 @@
+<div class="sticky">
+    <div class="button_and_form">
+        <button type="button" class="collapsible" id="reference">Add a reference</button>
+        <div class="input_form" style="display: none;">
+            <form action="/add_citation" method="post">
+                <label for="type">Type:</label><br>
+                <select id="type" name="type" required>
+                    <option value="">Select type</option>
+                    <option value="book">Book</option>
+                    <option value="article">Article</option>
+                    <option value="inproceedings">Inproceedings</option>
+                    <option value="misc">Misc</option>
+                </select><br><br>
+            </form>
+
+            <!-- BOOK -->
+            {% include 'forms/book.html' %}
+
+            <!-- ARTICLE -->
+            {% include 'forms/article.html' %}
+
+            <!-- IN PROCEEDINGS -->
+            {% include 'forms/inproceedings.html' %}
+
+            <!-- MISC -->
+            {% include 'forms/misc.html' %}
+
+        </div>
+    </div>
+</div>
+
+<!--------------------- SCRIPT ---------------------->
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display == "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
+    const allHidden = () => {
+        document.getElementById("bookFields").style.display = "none";
+        document.getElementById("articleFields").style.display = "none";
+        document.getElementById("inproceedingsFields").style.display = "none";
+        document.getElementById("miscFields").style.display = "none";
+    };
+
+    document.getElementById("type").addEventListener("change", function () {
+        allHidden();
+        switch (this.value) {
+            case "book":
+                document.getElementById("bookFields").style.display = "block";
+                break;
+            case "article":
+                document.getElementById("articleFields").style.display = "block";
+                break;
+            case "inproceedings":
+                document.getElementById("inproceedingsFields").style.display = "block";
+                break;
+            case "misc":
+                document.getElementById("miscFields").style.display = "block";
+                break;
+        }
+    });
+</script>
