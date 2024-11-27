@@ -5,13 +5,14 @@ from repositories.authors_repository \
 from config import db
 from db_helper import COLUMN_NAMES
 
+from hprint import hprint
+
 
 class CitationService:
     def __init__(self):
         pass
 
-    def add_citation(self, raw_data):
-        data = self.fill_data_with_nones(raw_data)
+    def add_citation(self, data):
         # data[authors] is in string format as ¨firstname lastname, firstname lastname¨
         authors = data["authors"].split(", ")
 
@@ -41,9 +42,10 @@ class CitationService:
         required_fields = list(COLUMN_NAMES)
         required_fields.remove("id")
         required_fields.remove("timestamp")
+        hprint(required_fields)
         for field in required_fields:
             if field not in data:
-                data[field] = None
+                data[field] = ""
         return data
 
 
