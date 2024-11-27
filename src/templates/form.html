@@ -1,201 +1,203 @@
-<div>
-    <button type="button" class="collapsible" id="reference">Add a reference</button>
-    <div class="input_form" style="display: none;">
-        <form action="/add_citation" method="post">
-            <label for="type">Type:</label><br>
-            <select id="type" name="type" required>
-                <option value="">Select type</option>
-                <option value="book">Book</option>
-                <option value="article">Article</option>
-                <option value="inproceedings">In proceedings</option>
-                <option value="misc">Misc</option>
-            </select><br><br>
-        </form>
+<div class="sticky">
+    <div class="button_and_form">
+        <button type="button" class="collapsible" id="reference">Add a reference</button>
+        <div class="input_form" style="display: none;">
+            <form action="/add_citation" method="post">
+                <label for="type">Type:</label><br>
+                <select id="type" name="type" required>
+                    <option value="">Select type</option>
+                    <option value="book">Book</option>
+                    <option value="article">Article</option>
+                    <option value="inproceedings">In proceedings</option>
+                    <option value="misc">Misc</option>
+                </select><br><br>
+            </form>
 
-        <!-- BOOK -->
-        <form action="/add_citation" method="post">
-            <input type="hidden" name="type" value="book">
-            <div id="bookFields" style="display: none;">
-                <label for="title">Title: *</label><br>
-                <input type="text" id="title" name="title" required><br><br>
+            <!-- BOOK -->
+            <form action="/add_citation" method="post">
+                <input type="hidden" name="type" value="book">
+                <div id="bookFields" style="display: none;">
+                    <label for="title">Title: *</label><br>
+                    <input type="text" id="title" name="title" required><br><br>
 
-                <label for="key">Key: *</label><br>
-                <input type="text" id="key" name="key" required><br><br>
+                    <label for="key">Key: *</label><br>
+                    <input type="text" id="key" name="key" required><br><br>
 
-                <label for="authors">Authors: *</label><br>
-                <input type="text" id="authors" name="authors" required><br><br>
+                    <label for="authors">Authors: *</label><br>
+                    <input type="text" id="authors" name="authors" required><br><br>
 
-                <label for="publisher">Publisher: *</label><br>
-                <input type="text" id="publisher" name="publisher" required><br><br>
+                    <label for="publisher">Publisher: *</label><br>
+                    <input type="text" id="publisher" name="publisher" required><br><br>
 
-                <label for="year">Year: *</label><br>
-                <input type="number" id="year" name="year" required><br><br>
+                    <label for="year">Year: *</label><br>
+                    <input type="number" id="year" name="year" required><br><br>
 
-                <label for="volume">Volume/number:</label><br>
-                <input type="text" id="volume" name="volume"><br><br>
+                    <label for="volume">Volume/number:</label><br>
+                    <input type="text" id="volume" name="volume"><br><br>
 
-                <label for="pages">Pages:</label><br>
-                <input type="text" id="pages" name="pages"><br><br>
+                    <label for="pages">Pages:</label><br>
+                    <input type="text" id="pages" name="pages"><br><br>
 
-                <label for="series">Series:</label><br>
-                <input type="text" id="series" name="series"><br><br>
+                    <label for="series">Series:</label><br>
+                    <input type="text" id="series" name="series"><br><br>
 
-                <label for="address">Address:</label><br>
-                <input type="text" id="address" name="address"><br><br>
+                    <label for="address">Address:</label><br>
+                    <input type="text" id="address" name="address"><br><br>
 
-                <label for="edition">Edition:</label><br>
-                <input type="text" id="edition" name="edition"><br><br>
+                    <label for="edition">Edition:</label><br>
+                    <input type="text" id="edition" name="edition"><br><br>
 
-                <label for="month">Month:</label><br>
-                <input type="text" id="month" name="month"><br><br>
+                    <label for="month">Month:</label><br>
+                    <input type="text" id="month" name="month"><br><br>
 
-                <label for="note">Note:</label><br>
-                <input type="note" id="note" name="note"><br><br>
+                    <label for="note">Note:</label><br>
+                    <input type="note" id="note" name="note"><br><br>
 
-                <label for="tags">Tags:</label><br>
-                <input type="text" id="tags" name="tags"><br><br>
+                    <label for="tags">Tags:</label><br>
+                    <input type="text" id="tags" name="tags"><br><br>
 
-                <label for="citation_url">URL:</label><br>
-                <input type="text" id="citation_url" name="citation_url"><br><br>
+                    <label for="citation_url">URL:</label><br>
+                    <input type="text" id="citation_url" name="citation_url"><br><br>
 
 
-                <button type="submit">Submit</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+
+            <!-- ARTICLE -->
+            <div id="articleFields" style="display: none;">
+                <form action="/add_citation" method="post">
+                    <input type="hidden" name="type" value="article">
+
+                    <label for="title">Title: *</label><br>
+                    <input type="text" id="title" name="title" required><br><br>
+
+                    <label for="key">Key: *</label><br>
+                    <input type="text" id="key" name="key" required><br><br>
+
+                    <label for="authors">Authors: *</label><br>
+                    <input type="text" id="authors" name="authors" required><br><br>
+
+                    <label for="year">Year: *</label><br>
+                    <input type="number" id="year" name="year" required><br><br>
+
+                    <label for="journal">Journal: *</label><br>
+                    <input type="text" id="journal" name="journal" required><br><br>
+
+                    <label for="volume">Volume:</label><br>
+                    <input type="text" id="volume" name="volume"><br><br>
+
+                    <label for="pages">Pages:</label><br>
+                    <input type="text" id="pages" name="pages"><br><br>
+
+                    <label for="month">Month:</label><br>
+                    <input type="text" id="month" name="month"><br><br>
+
+                    <label for="doi">DOI:</label><br>
+                    <input type="text" id="doi" name="doi"><br><br>
+
+                    <label for="note">Note:</label><br>
+                    <input type="note" id="note" name="note"><br><br>
+
+                    <label for="tags">Tags:</label><br>
+                    <input type="text" id="tags" name="tags"><br><br>
+
+                    <label for="citation_url">Citation URL:</label><br>
+                    <input type="text" id="citation_url" name="citation_url"><br><br>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
-        </form>
 
-        <!-- ARTICLE -->
-        <div id="articleFields" style="display: none;">
-            <form action="/add_citation" method="post">
-                <input type="hidden" name="type" value="article">
+            <!-- IN PROCEEDINGS -->
+            <div id="inproceedingsFields" style="display: none;">
+                <form action="/add_citation" method="post">
+                    <input type="hidden" name="type" value="inproceedings">
 
-                <label for="title">Title: *</label><br>
-                <input type="text" id="title" name="title" required><br><br>
+                    <label for="title">Title: *</label><br>
+                    <input type="text" id="title" name="title" required><br><br>
 
-                <label for="key">Key: *</label><br>
-                <input type="text" id="key" name="key" required><br><br>
+                    <label for="booktitle">Booktitle: *</label><br>
+                    <input type="text" id="booktitle" name="booktitle" required><br><br>
 
-                <label for="authors">Authors: *</label><br>
-                <input type="text" id="authors" name="authors" required><br><br>
+                    <label for="key">Key: *</label><br>
+                    <input type="text" id="key" name="key" required><br><br>
 
-                <label for="year">Year: *</label><br>
-                <input type="number" id="year" name="year" required><br><br>
+                    <label for="authors">Authors: *</label><br>
+                    <input type="text" id="authors" name="authors" required><br><br>
 
-                <label for="journal">Journal: *</label><br>
-                <input type="text" id="journal" name="journal" required><br><br>
+                    <label for="year">Year: *</label><br>
+                    <input type="number" id="year" name="year" required><br><br>
 
-                <label for="volume">Volume:</label><br>
-                <input type="text" id="volume" name="volume"><br><br>
+                    <label for="editor">Editor:</label><br>
+                    <input type="text" id="editor" name="editor"><br><br>
 
-                <label for="pages">Pages:</label><br>
-                <input type="text" id="pages" name="pages"><br><br>
+                    <label for="volume">Volume/number:</label><br>
+                    <input type="text" id="volume" name="volume"><br><br>
 
-                <label for="month">Month:</label><br>
-                <input type="text" id="month" name="month"><br><br>
+                    <label for="series">Series:</label><br>
+                    <input type="text" id="series" name="series"><br><br>
 
-                <label for="doi">DOI:</label><br>
-                <input type="text" id="doi" name="doi"><br><br>
+                    <label for="pages">Pages:</label><br>
+                    <input type="text" id="pages" name="pages"><br><br>
 
-                <label for="note">Note:</label><br>
-                <input type="note" id="note" name="note"><br><br>
+                    <label for="address">Address:</label><br>
+                    <input type="text" id="address" name="address"><br><br>
 
-                <label for="tags">Tags:</label><br>
-                <input type="text" id="tags" name="tags"><br><br>
+                    <label for="month">Month:</label><br>
+                    <input type="text" id="month" name="month"><br><br>
 
-                <label for="citation_url">Citation URL:</label><br>
-                <input type="text" id="citation_url" name="citation_url"><br><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+                    <label for="organization">Organization:</label><br>
+                    <input type="text" id="organization" name="organization"><br><br>
 
-        <!-- IN PROCEEDINGS -->
-        <div id="inproceedingsFields" style="display: none;">
-            <form action="/add_citation" method="post">
-                <input type="hidden" name="type" value="inproceedings">
+                    <label for="publisher">Publisher:</label><br>
+                    <input type="text" id="publisher" name="publisher"><br><br>
 
-                <label for="title">Title: *</label><br>
-                <input type="text" id="title" name="title" required><br><br>
+                    <label for="note">Note:</label><br>
+                    <input type="note" id="note" name="note"><br><br>
 
-                <label for="booktitle">Booktitle: *</label><br>
-                <input type="text" id="booktitle" name="booktitle" required><br><br>
+                    <label for="tags">Tags:</label><br>
+                    <input type="text" id="tags" name="tags"><br><br>
 
-                <label for="key">Key: *</label><br>
-                <input type="text" id="key" name="key" required><br><br>
+                    <label for="citation_url">URL:</label><br>
+                    <input type="text" id="citation_url" name="citation_url"><br><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
 
-                <label for="authors">Authors: *</label><br>
-                <input type="text" id="authors" name="authors" required><br><br>
+            <!-- MISC -->
+            <div id="miscFields" style="display: none;">
+                <form action="/add_citation" method="post">
+                    <input type="hidden" name="type" value="misc">
 
-                <label for="year">Year: *</label><br>
-                <input type="number" id="year" name="year" required><br><br>
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" name="title"><br><br>
 
-                <label for="editor">Editor:</label><br>
-                <input type="text" id="editor" name="editor"><br><br>
+                    <label for="key">Key:</label><br>
+                    <input type="text" id="key" name="key"><br><br>
 
-                <label for="volume">Volume/number:</label><br>
-                <input type="text" id="volume" name="volume"><br><br>
+                    <label for="authors">Authors:</label><br>
+                    <input type="text" id="authors" name="authors"><br><br>
 
-                <label for="series">Series:</label><br>
-                <input type="text" id="series" name="series"><br><br>
+                    <label for="howpublished">How published:</label><br>
+                    <input type="text" id="howpublished" name="howpublished"><br><br>
 
-                <label for="pages">Pages:</label><br>
-                <input type="text" id="pages" name="pages"><br><br>
+                    <label for="month">Month:</label><br>
+                    <input type="text" id="month" name="month"><br><br>
 
-                <label for="address">Address:</label><br>
-                <input type="text" id="address" name="address"><br><br>
+                    <label for="year">Year:</label><br>
+                    <input type="number" id="year" name="year"><br><br>
 
-                <label for="month">Month:</label><br>
-                <input type="text" id="month" name="month"><br><br>
+                    <label for="note">Note:</label><br>
+                    <input type="text" id="note" name="note"><br><br>
 
-                <label for="organization">Organization:</label><br>
-                <input type="text" id="organization" name="organization"><br><br>
+                    <label for="tags">Tags:</label><br>
+                    <input type="text" id="tags" name="tags"><br><br>
 
-                <label for="publisher">Publisher:</label><br>
-                <input type="text" id="publisher" name="publisher"><br><br>
-
-                <label for="note">Note:</label><br>
-                <input type="note" id="note" name="note"><br><br>
-
-                <label for="tags">Tags:</label><br>
-                <input type="text" id="tags" name="tags"><br><br>
-
-                <label for="citation_url">URL:</label><br>
-                <input type="text" id="citation_url" name="citation_url"><br><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-
-        <!-- MISC -->
-        <div id="miscFields" style="display: none;">
-            <form action="/add_citation" method="post">
-                <input type="hidden" name="type" value="misc">
-
-                <label for="title">Title:</label><br>
-                <input type="text" id="title" name="title"><br><br>
-
-                <label for="key">Key:</label><br>
-                <input type="text" id="key" name="key"><br><br>
-
-                <label for="authors">Authors:</label><br>
-                <input type="text" id="authors" name="authors"><br><br>
-
-                <label for="howpublished">How published:</label><br>
-                <input type="text" id="howpublished" name="howpublished"><br><br>
-
-                <label for="month">Month:</label><br>
-                <input type="text" id="month" name="month"><br><br>
-
-                <label for="year">Year:</label><br>
-                <input type="number" id="year" name="year"><br><br>
-
-                <label for="note">Note:</label><br>
-                <input type="text" id="note" name="note"><br><br>
-
-                <label for="tags">Tags:</label><br>
-                <input type="text" id="tags" name="tags"><br><br>
-
-                <label for="citation_url">URL:</label><br>
-                <input type="text" id="citation_url" name="citation_url"><br><br>
-                <button type="submit">Submit</button>
-            </form>
+                    <label for="citation_url">URL:</label><br>
+                    <input type="text" id="citation_url" name="citation_url"><br><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
