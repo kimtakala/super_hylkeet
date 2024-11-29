@@ -1,4 +1,4 @@
-from flask import render_template, jsonify, request
+from flask import render_template, jsonify, request, redirect, url_for, flash
 from form_verification import validate_citations
 from services.citations_service import citation_service
 from db_helper import reset_db
@@ -23,9 +23,11 @@ def add_citation_route():
         return render_template("index.html", errors=errors)
 
     citation_service.add_citation(data)
-    success = "Citation added successfully"
-    citations = citation_service.get_citations()
-    return render_template("index.html", success=success, listed_citations=citations)
+    flash("Citation added successfully!", "success")    
+    return redirect(url_for('index'))
+
+
+
 
 
 # testausta varten oleva reitti
