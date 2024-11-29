@@ -4,12 +4,10 @@ on:
   push:
     branches:
       - main
-      - form
       - sprint*
   pull_request:
     branches:
       - main
-      - form
       - sprint*
 
 jobs:
