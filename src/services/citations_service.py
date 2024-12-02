@@ -1,7 +1,12 @@
-from repositories.citation_repository \
-    import add_citation, get_citations, get_citation_by_title
-from repositories.authors_repository \
-    import add_author_by_citation_id, get_authors_by_citation_id
+from repositories.citation_repository import (
+    add_citation,
+    get_citations,
+    get_citation_by_title,
+)
+from repositories.authors_repository import (
+    add_author_by_citation_id,
+    get_authors_by_citation_id,
+)
 from config import db
 from db_helper import COLUMN_NAMES
 
@@ -31,7 +36,7 @@ class CitationService:
         # the others wont be commited.
         db.session.commit()
 
-    def get_citations(self):
+    def fetch_citations(self):  # changed name to be unique
         citations = get_citations()
         for citation in citations:
             authors = get_authors_by_citation_id(citation.id)
