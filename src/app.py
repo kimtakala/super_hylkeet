@@ -7,7 +7,7 @@ from config import app, test_env
 
 @app.route("/")
 def index():
-    citations = citation_service.get_citations()
+    citations = citation_service.fetch_citations()
     return render_template("index.html", listed_citations=citations)
 
 

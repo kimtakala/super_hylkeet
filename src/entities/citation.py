@@ -12,6 +12,10 @@ class Citation:
                 self._data[COLUMN_NAMES[i]] = value
 
     @property
+    def all_data(self):
+        return self._data
+
+    @property
     def id(self):
         return self._data["id"]
 
@@ -39,7 +43,7 @@ class Citation:
         self._data["authors"] = authors
 
     def get_datalines(self):
-        # This funktion returns all relevant datafields. Not including the title.
+        # This function returns all relevant datafields. Not including the title.
         new_dict = self._data
         # Removing not essential field form the dictinary
         # Basicly these field are not shown in the fronend dropdown.
