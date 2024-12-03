@@ -50,6 +50,7 @@ class Citation:
         new_dict.pop("title", None)
         new_dict.pop("id", None)
         new_dict.pop("timestamp", None)
+        new_dict.pop("hidden", None)
 
         # Returning a list of keys and values
         return list((k, v) for k, v in new_dict.items())

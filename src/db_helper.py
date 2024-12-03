@@ -14,7 +14,8 @@ COLUMN_NAMES = [
     "tags",
     "booktitle",
     "citation_url",
-    "timestamp"
+    "timestamp",
+    "hidden",
 ]
 
 TABLE_CITATIONS = """
@@ -30,7 +31,8 @@ TABLE_CITATIONS = """
                     tags TEXT,
                     booktitle TEXT,
                     citation_url TEXT,
-                    timestamp TEXT
+                    timestamp TEXT,
+                    hidden BOOLEAN
                 """
 
 TABLE_AUTHORS = """

@@ -45,5 +45,6 @@ class TestCitation(unittest.TestCase):
         expected_datalines.pop(0)
         expected_datalines.pop(2)
         expected_datalines.pop(10)
+        expected_dataline.pop(10)
 
         self.assertEqual(self.citation.get_datalines(), expected_datalines)

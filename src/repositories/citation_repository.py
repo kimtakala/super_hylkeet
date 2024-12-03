@@ -5,7 +5,7 @@ from entities.citation import Citation
 
 
 def get_citations():
-    sql = """   SELECT citations.* FROM citations
+    sql = """   SELECT citations.*  FROM citations
                 LEFT JOIN authors ON citations.id = authors.citation_id
                 WHERE authors.main_author = true
                 ORDER BY authors.last_name ASC
@@ -38,10 +38,10 @@ def add_citation(data):
     sql = text(
         """INSERT INTO citations 
             (title, key,  year, type, doi, pages, volume,
-            publisher, tags, booktitle, citation_url, timestamp) 
+            publisher, tags, booktitle, citation_url, timestamp, hidden) 
             VALUES 
             (:title, :key, :year, :type, :doi, :pages, :volume,
-            :publisher, :tags, :booktitle, :citation_url, CURRENT_TIMESTAMP)"""
+            :publisher, :tags, :booktitle, :citation_url, CURRENT_TIMESTAMP, FALSE)"""
     )
     db.session.execute(
         sql,
