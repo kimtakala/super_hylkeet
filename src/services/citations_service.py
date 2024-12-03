@@ -45,10 +45,9 @@ class CitationService:
             author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
         return citations
-    
+
     def delete_citation_by_id(self, id):
-        oass
-        
+        hide_citation_by_id(id)
 
     def fill_data_with_nones(self, data):
         data = data.to_dict()
