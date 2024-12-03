@@ -1,3 +1,5 @@
+# This is a test file that submits citations to the reference app and test the delete functionality for each of the citation types
+
 *** Settings ***
 Resource  resource.robot
 Suite Setup      Suite Setup Steps
