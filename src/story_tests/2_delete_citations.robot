@@ -1,7 +1,12 @@
 *** Settings ***
 Resource  resource.robot
-Suite Setup      Open And Configure Browser
+Suite Setup      Suite Setup Steps
 Suite Teardown   Close Browser
+
+*** Keywords ***
+Suite Setup Steps
+    Open And Configure Browser
+    Reset Citations
 
 *** Test Cases ***
 Page Loads
@@ -34,6 +39,19 @@ Entering Valid Information The **BOOK** Citation Is Accepted
     Should Be Empty  ${value}
 
 
+Deleting **BOOK** Citation Works
+    # Navigate to the home page
+    Go To  ${HOME_URL}
+
+    # Verify the BOOK citation exists
+    Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study, 1975')]
+
+    # Click the delete button for the BOOK citation
+    Click Button  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study, 1975')]]//button[@class='delete-btn']
+
+    # Verify the BOOK citation is no longer present
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study, 1975')]
+
 Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
@@ -42,7 +60,7 @@ Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
     Input Text  booktitle_inproceedings  proceedings of the seal conference
     Input Text  key_inproceedings  789
     Input Text  authors_inproceedings  Seal Researcher
-    Input Text  year_inproceedings  2021
+    Input Text  year_inproceedings  2021    
     Input Text  editor_inproceedings  Dr. Editor
     Input Text  volume_inproceedings  10
     Input Text  series_inproceedings  Conference Series
@@ -60,6 +78,18 @@ Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
     ${value}=  Get Value  id=tags_inproceedings
     Should Be Empty  ${value}
 
+Deleting **INPROCEEDINGS** Citation Works
+    # Navigate to the home page
+    Go To  ${HOME_URL}
+
+    # Verify the INPROCEEDINGS citation exists
+    Element Should Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper, 2021')]
+
+    # Click the delete button for the INPROCEEDINGS citation
+    Click Button  xpath=//h4[label[contains(text(), 'S. Researcher: conference paper, 2021')]]//button[@class='delete-btn']
+
+    # Verify the INPROCEEDINGS citation is no longer present
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper, 2021')]
 
 Entering Valid Information The **ARTICLE** Citation Is Accepted
     Go To  ${HOME_URL}
@@ -83,6 +113,19 @@ Entering Valid Information The **ARTICLE** Citation Is Accepted
     ${value}=  Get Value  id=tags_article
     Should Be Empty  ${value}
 
+Deleting **ARTICLE** Citation Works
+    # Navigate to the home page
+    Go To  ${HOME_URL}
+
+    # Verify the ARTICLE citation exists
+    Element Should Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]
+
+    # Click the delete button for the ARTICLE citation
+    Click Button  xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]]//button[@class='delete-btn']
+
+    # Verify the ARTICLE citation is no longer present
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]
+
 Entering Valid Information The **MISC** Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
@@ -101,3 +144,16 @@ Entering Valid Information The **MISC** Citation Is Accepted
     Title Should Be  Reference app
     ${value}=  Get Value  id=tags_misc
     Should Be Empty  ${value}
+
+Deleting **MISC** Citation Works
+    # Navigate to the home page
+    Go To  ${HOME_URL}
+
+    # Verify the MISC citation exists
+    Element Should Be Visible  xpath=//label[contains(text(), 'M. Author: misc research, 2021')]
+
+    # Click the delete button for the MISC citation
+    Click Button  xpath=//h4[label[contains(text(), 'M. Author: misc research, 2021')]]//button[@class='delete-btn']
+
+    # Verify the MISC citation is no longer present
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'M. Author: misc research, 2021')]
