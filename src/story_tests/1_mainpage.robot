@@ -88,12 +88,12 @@ Entering Valid Information The **MISC** Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
     Select From List By Value  type  misc
-    Input Text  title_misc  groundbreaking research
-    Input Text  key_misc  456
-    Input Text  authors_misc  Dr. Seal Expert
+    Input Text  title_misc  misc research
+    Input Text  key_misc  1111
+    Input Text  authors_misc  Misc Author
     Input Text  howpublished_misc  published
     Input Text  month_misc  March
-    Input Text  year_misc  2020
+    Input Text  year_misc  2021
     Input Text  note_misc  Significant Findings
     Input Text  tags_misc  research, article
     Input Text  citation_url_misc  www.research-example.com
