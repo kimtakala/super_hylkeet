@@ -1,6 +1,7 @@
 from repositories.citation_repository import (
     add_citation,
     get_citations,
+    search_citations,
     get_citation_by_title,
     hide_citation_by_id,
 )
@@ -37,8 +38,12 @@ class CitationService:
         # the others wont be commited.
         db.session.commit()
 
-    def fetch_citations(self):  # changed name to be unique
-        citations = get_citations()
+    def fetch_citations(self, search_key=""):  # changed name to be unique
+        if search_key == "":
+            citations = get_citations()
+        else:
+            citations = search_citations(search_key)
+
         for citation in citations:
             authors = get_authors_by_citation_id(citation.id)
             # parsin the author data to firstname lastname, firstname lastname format

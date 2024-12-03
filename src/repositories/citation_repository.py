@@ -16,6 +16,28 @@ def get_citations():
     return [Citation(data) for data in citations]
 
 
+def search_citations(search_key):
+    search_sql = """LOWER(c.title) LIKE LOWER(%:search_key%) OR
+                    LOWER(c.tag) LIKE LOWER(%:search_key%) OR
+                    LOWER(a.first_name) LIKE LOWER(%:search_key%) OR
+                    LOWER(a.last_name) LIKE LOWER(%:search_key%) OR
+                    """
+    sql = f"""   SELECT c.*  FROM citations c
+                LEFT JOIN authors a ON c.id = a.citation_id
+                WHERE (a.main_author = true AND c.hidden = FALSE) OR ({search_sql})
+                ORDER BY a.last_name ASC
+            """
+    result = db.session.execute(
+        sql,
+        {
+            "search_key": search_key
+        },
+    )
+    citations = result.fetchall()
+
+    return [Citation(data) for data in citations]
+
+
 def get_citation_by_title(title):
     sql = "SELECT * FROM citations WHERE title = :title"
     result = db.session.execute(text(sql), {"title": title})
@@ -69,6 +91,7 @@ def add_citation(data):
         },
     )
 
+
 def hide_citation_by_id(id):
     sql = text("UPDATE citations SET hidden = TRUE WHERE id = :id")
     db.session.execute(
@@ -76,4 +99,3 @@ def hide_citation_by_id(id):
         {"id": id}
     )
     db.session.commit()
-    

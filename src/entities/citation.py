@@ -34,14 +34,6 @@ class Citation:
             return "No Title"
         return self._data["title"]
 
-    def get_year(self):
-        if "year" not in self._data:
-            return "No Year"
-        return self._data["year"]
-
-    def add_authors(self, authors):
-        self._data["authors"] = authors
-
     def get_datalines(self):
         # This function returns all relevant datafields. Not including the title.
         new_dict = self._data
