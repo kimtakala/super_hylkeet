@@ -20,7 +20,7 @@ Entering Valid Information The **BOOK** Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
     Select From List By Value  type  book
-    Input Text  title_book  scientific study
+    Input Text  title_book  scientific study!
     Input Text  key_book  123
     Input Text  authors_book  Hylje Maisteri
     Input Text  publisher_book  Otava
@@ -46,19 +46,19 @@ Deleting **BOOK** Citation Works
     Go To  ${HOME_URL}
 
     # Verify the BOOK citation exists
-    Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study, 1975')]
+    Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
 
     # Click the delete button for the BOOK citation
-    Click Button  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study, 1975')]]//button[@class='delete-btn']
+    Click Button  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]//button[@class='delete-btn']
 
     # Verify the BOOK citation is no longer present
-    Element Should Not Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study, 1975')]
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
 
 Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
     Select From List By Value  type  inproceedings
-    Input Text  title_inproceedings  conference paper
+    Input Text  title_inproceedings  conference paper!
     Input Text  booktitle_inproceedings  proceedings of the seal conference
     Input Text  key_inproceedings  789
     Input Text  authors_inproceedings  Seal Researcher
@@ -85,19 +85,19 @@ Deleting **INPROCEEDINGS** Citation Works
     Go To  ${HOME_URL}
 
     # Verify the INPROCEEDINGS citation exists
-    Element Should Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper, 2021')]
+    Element Should Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper!, 2021')]
 
     # Click the delete button for the INPROCEEDINGS citation
-    Click Button  xpath=//h4[label[contains(text(), 'S. Researcher: conference paper, 2021')]]//button[@class='delete-btn']
+    Click Button  xpath=//h4[label[contains(text(), 'S. Researcher: conference paper!, 2021')]]//button[@class='delete-btn']
 
     # Verify the INPROCEEDINGS citation is no longer present
-    Element Should Not Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper, 2021')]
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper!, 2021')]
 
 Entering Valid Information The **ARTICLE** Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
     Select From List By Value  type  article
-    Input Text  title_article  groundbreaking research
+    Input Text  title_article  groundbreaking research!
     Input Text  key_article  456
     Input Text  authors_article  Dr. Seal Expert
     Input Text  year_article  2020
@@ -120,19 +120,19 @@ Deleting **ARTICLE** Citation Works
     Go To  ${HOME_URL}
 
     # Verify the ARTICLE citation exists
-    Element Should Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]
+    Element Should Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]
 
     # Click the delete button for the ARTICLE citation
-    Click Button  xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]]//button[@class='delete-btn']
+    Click Button  xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]]//button[@class='delete-btn']
 
     # Verify the ARTICLE citation is no longer present
-    Element Should Not Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]
 
 Entering Valid Information The **MISC** Citation Is Accepted
     Go To  ${HOME_URL}
     Click Button  reference
     Select From List By Value  type  misc
-    Input Text  title_misc  misc research
+    Input Text  title_misc  misc research!
     Input Text  key_misc  1111
     Input Text  authors_misc  Misc Author
     Input Text  howpublished_misc  published
@@ -152,10 +152,10 @@ Deleting **MISC** Citation Works
     Go To  ${HOME_URL}
 
     # Verify the MISC citation exists
-    Element Should Be Visible  xpath=//label[contains(text(), 'M. Author: misc research, 2021')]
+    Element Should Be Visible  xpath=//label[contains(text(), 'M. Author: misc research!, 2021')]
 
     # Click the delete button for the MISC citation
-    Click Button  xpath=//h4[label[contains(text(), 'M. Author: misc research, 2021')]]//button[@class='delete-btn']
+    Click Button  xpath=//h4[label[contains(text(), 'M. Author: misc research!, 2021')]]//button[@class='delete-btn']
 
     # Verify the MISC citation is no longer present
-    Element Should Not Be Visible  xpath=//label[contains(text(), 'M. Author: misc research, 2021')]
+    Element Should Not Be Visible  xpath=//label[contains(text(), 'M. Author: misc research!, 2021')]
