@@ -26,8 +26,6 @@ def add_author_by_citation_id(citation_id, author, is_main):
         },
     )
 
-    db.session.commit()
-
 
 def get_authors_for_citation_listing(citation_id):
     sql = text("SELECT first_name, last_name FROM authors WHERE citation_id = :id")

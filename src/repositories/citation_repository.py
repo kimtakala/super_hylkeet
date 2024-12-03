@@ -7,7 +7,7 @@ from entities.citation import Citation
 def get_citations():
     sql = """   SELECT citations.*  FROM citations
                 LEFT JOIN authors ON citations.id = authors.citation_id
-                WHERE authors.main_author = true
+                WHERE authors.main_author = true AND citations.hidden = FALSE
                 ORDER BY authors.last_name ASC
             """
     result = db.session.execute(text(sql))
@@ -60,4 +60,11 @@ def add_citation(data):
         },
     )
 
+def hide_citation_by_id(id):
+    sql = text("UPDATE citations SET hidden = TRUE WHERE id = :id")
+    db.session.execute(
+        sql,
+        {"id": id}
+    )
     db.session.commit()
+    

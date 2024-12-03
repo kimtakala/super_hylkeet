@@ -2,6 +2,7 @@ from repositories.citation_repository import (
     add_citation,
     get_citations,
     get_citation_by_title,
+    hide_citation_by_id,
 )
 from repositories.authors_repository import (
     add_author_by_citation_id,
@@ -44,6 +45,10 @@ class CitationService:
             author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
         return citations
+    
+    def delete_citation_by_id(self, id):
+        oass
+        
 
     def fill_data_with_nones(self, data):
         data = data.to_dict()
