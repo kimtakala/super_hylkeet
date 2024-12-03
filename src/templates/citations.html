@@ -2,7 +2,13 @@
 
 Generate BibTex-code from all citations or choose specific citations.
 <p>
-<form method="POST" action="/generate-bibtex">
+
+    {% if request.args.get('bibtex') %}
+<h2>Generated BibTeX</h2>
+<textarea rows="10" cols="80" readonly>{{ request.args.get('bibtex') }}</textarea>
+{% endif %}
+
+<form method="POST" action="/generate_bibtex">
 
     <button type="button" onclick="toggleCheckboxes(true)">Select All</button>
     <button type="button" onclick="toggleCheckboxes(false)">Clear</button>
