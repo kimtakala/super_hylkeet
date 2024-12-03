@@ -17,20 +17,20 @@ def get_citations():
 
 
 def search_citations(search_key):
-    search_sql = """LOWER(c.title) LIKE LOWER(%:search_key%) OR
-                    LOWER(c.tag) LIKE LOWER(%:search_key%) OR
-                    LOWER(a.first_name) LIKE LOWER(%:search_key%) OR
-                    LOWER(a.last_name) LIKE LOWER(%:search_key%) OR
-                    """
-    sql = f"""   SELECT c.*  FROM citations c
+    key = "%"+search_key+"%"
+    sql = text("""   SELECT c.*  FROM citations c
                 LEFT JOIN authors a ON c.id = a.citation_id
-                WHERE (a.main_author = true AND c.hidden = FALSE) OR ({search_sql})
+                WHERE a.main_author = true AND c.hidden = FALSE AND (
+                    c.title LIKE :search_key OR
+                    LOWER(c.tags) LIKE LOWER(:search_key) OR
+                    LOWER(a.first_name) LIKE LOWER(:search_key) OR
+                    LOWER(a.last_name) LIKE LOWER(:search_key))
                 ORDER BY a.last_name ASC
-            """
+            """)
     result = db.session.execute(
         sql,
         {
-            "search_key": search_key
+            "search_key": key
         },
     )
     citations = result.fetchall()
