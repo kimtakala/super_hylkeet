@@ -7,7 +7,7 @@ from entities.citation import Citation
 def get_citations():
     sql = """   SELECT citations.*  FROM citations
                 LEFT JOIN authors ON citations.id = authors.citation_id
-                WHERE authors.main_author = true AND citations.hidden = FALSE
+                WHERE authors.main_author = true
                 ORDER BY authors.last_name ASC
             """
     result = db.session.execute(text(sql))
@@ -20,7 +20,7 @@ def search_citations(search_key):
     key = "%"+search_key+"%"
     sql = text("""   SELECT c.*  FROM citations c
                 LEFT JOIN authors a ON c.id = a.citation_id
-                WHERE a.main_author = true AND c.hidden = FALSE AND (
+                WHERE a.main_author = true AND (
                     c.title LIKE :search_key OR
                     LOWER(c.tags) LIKE LOWER(:search_key) OR
                     LOWER(c.key) LIKE LOWER(:search_key) OR
@@ -75,10 +75,10 @@ def add_citation(data):
     sql = text(
         """INSERT INTO citations 
             (title, key,  year, type, doi, pages, volume,
-            publisher, tags, booktitle, citation_url, timestamp, hidden) 
+            publisher, tags, booktitle, citation_url, timestamp) 
             VALUES 
             (:title, :key, :year, :type, :doi, :pages, :volume,
-            :publisher, :tags, :booktitle, :citation_url, CURRENT_TIMESTAMP, FALSE)"""
+            :publisher, :tags, :booktitle, :citation_url, CURRENT_TIMESTAMP)"""
     )
     db.session.execute(
         sql,
@@ -98,8 +98,8 @@ def add_citation(data):
     )
 
 
-def hide_citation_by_id(id):
-    sql = text("UPDATE citations SET hidden = TRUE WHERE id = :id")
+def delete_by_id(id):
+    sql = text("DELETE FROM citations WHERE id = :id")
     db.session.execute(
         sql,
         {"id": id}
