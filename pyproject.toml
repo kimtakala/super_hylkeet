@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "webcntr"
+name = "super_hylkeet"
 version = "0.1.0"
 description = ""
 authors = ["Matti Luukkainen <mluukkai@iki.fi>"]
