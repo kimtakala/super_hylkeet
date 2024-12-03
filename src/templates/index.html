@@ -16,9 +16,13 @@ Reference app
 {% include 'form.html' %}
 
 <br>
-{% if success %}
-{{ success }}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="flash {{ category }}">{{ message }}</div>
+{% endfor %}
 {% endif %}
+{% endwith %}
 <br>
 {% include 'citations.html' %}
 
