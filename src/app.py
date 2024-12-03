@@ -40,7 +40,7 @@ def generate_bibtex_route():
     return redirect(url_for("index", bibtex=bibtex_output))
 
 
-@app.route("/delete_citation/<int:id>", methods=["POST"])
+@app.route("/delete_citation/<int:id>", methods=["GET", "POST"])
 def delete_citation(id):
     citation_service.delete_citation_by_id(id)
     citations = citation_service.fetch_citations()

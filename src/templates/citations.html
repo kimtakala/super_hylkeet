@@ -13,12 +13,10 @@ Generate BibTex-code from all citations or choose specific citations.
 
 <br>
 
-<form method="POST" action="/generate_bibtex">
-
+<form action="/generate_bibtex" method="POST">
     <button type="button" onclick="toggleCheckboxes(true)">Select All</button>
     <button type="button" onclick="toggleCheckboxes(false)">Clear</button>
     <button type="submit" id="Generate">Generate</button>
-
 
     {% for citation in listed_citations %}
     <h4 class="title" onclick="toggleDetails('details_{{ loop.index }}', 'arrow_{{ loop.index }}')">
@@ -27,10 +25,10 @@ Generate BibTex-code from all citations or choose specific citations.
             citation.get_year() }}</label>
         <input type="checkbox" id="citation_{{ loop.index }}" name="citations" value="{{ citation.id }}"
             onclick="event.stopPropagation();">
-        <form action="/delete_citation/{{ citation.id }}" method="POST" style="display: inline;">
-            <button type="submit" class="delete-btn">delete</button>
-        </form>
+        <button onclick="window.location.href='/delete_citation/{{ citation.id }}'; return false;"
+            class="delete-btn">Delete</button>
     </h4>
+
     <div id="details_{{ loop.index }}" class="details" style="display: none;">
         {% for data_line in citation.get_datalines() %}
         <p><strong>{{ data_line[0] }}:</strong> {{ data_line[1] }}</p>
