@@ -14,8 +14,7 @@ COLUMN_NAMES = [
     "tags",
     "booktitle",
     "citation_url",
-    "timestamp",
-    "hidden",
+    "timestamp"
 ]
 
 TABLE_CITATIONS = """
@@ -31,8 +30,7 @@ TABLE_CITATIONS = """
                     tags TEXT,
                     booktitle TEXT,
                     citation_url TEXT,
-                    timestamp TEXT,
-                    hidden BOOLEAN
+                    timestamp TEXT
                 """
 
 TABLE_AUTHORS = """
@@ -41,7 +39,9 @@ TABLE_AUTHORS = """
                     first_name TEXT,
                     last_name TEXT,
                     main_author BOOLEAN,
-                    FOREIGN KEY (citation_id) REFERENCES citations(id)
+                    FOREIGN KEY (citation_id) 
+                        REFERENCES citations(id)
+                        ON DELETE CASCADE
                 """
 
 

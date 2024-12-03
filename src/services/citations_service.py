@@ -3,7 +3,7 @@ from repositories.citation_repository import (
     get_citations,
     search_citations,
     get_citation_by_title,
-    hide_citation_by_id,
+    delete_by_id,
 )
 from repositories.authors_repository import (
     add_author_by_citation_id,
@@ -52,7 +52,7 @@ class CitationService:
         return citations
 
     def delete_citation_by_id(self, id):
-        hide_citation_by_id(id)
+        delete_by_id(id)
 
     def fill_data_with_nones(self, data):
         data = data.to_dict()

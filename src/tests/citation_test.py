@@ -19,7 +19,6 @@ class CitationStub:
             "test booktitle",
             "Test url",
             "2024-11-19",
-            "TRUE",
         ]
 
 
