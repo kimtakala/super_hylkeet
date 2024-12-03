@@ -99,7 +99,7 @@ def add_citation(data):
 
 
 def delete_by_id(id):
-    sql = text("DELETE FROM citations WHERE id = :id CASCADE")
+    sql = text("DELETE FROM citations WHERE id = :id")
     db.session.execute(
         sql,
         {"id": id}
