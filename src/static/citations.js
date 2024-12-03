@@ -26,3 +26,15 @@ function toggleBibtex() {
         bibtexTextarea.style.display = "none";
     }
 }
+
+function deleteCitation(citationId) {
+    fetch(`/delete_citation/${citationId}`, {
+        method: 'POST'
+    })
+        .then(response => {
+            if (response.ok) {
+                location.reload();
+            }
+        })
+
+}
