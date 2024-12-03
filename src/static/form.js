@@ -7,13 +7,17 @@ function hideAll() {
 
 function showForm() {
     var content = document.getElementsByClassName("input_form")[0];
+
+    var scrolled = false;
     if (window.scrollY) {
         window.scrollTo(0,0);
-        return;
+        scrolled = true;
     }
     
     if (content.style.display == "block") {
-        content.style.display = "none";
+        if (scrolled == false) {
+            content.style.display = "none";
+        }
     } else {
         hideAll();
         document.getElementById('type').value = "";
