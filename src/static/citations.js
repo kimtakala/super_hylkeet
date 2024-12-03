@@ -16,3 +16,13 @@ function toggleCheckboxes(checked) {
         checkbox.checked = checked;
     });
 }
+
+
+function toggleBibtex() {
+    var bibtexTextarea = document.getElementById("bibtexTextarea");
+    if (bibtexTextarea.style.display === "none") {
+        bibtexTextarea.style.display = "block";
+    } else {
+        bibtexTextarea.style.display = "none";
+    }
+}

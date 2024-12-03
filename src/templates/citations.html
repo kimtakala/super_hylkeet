@@ -7,8 +7,11 @@ Generate BibTex-code from all citations or choose specific citations.
 
     {% if request.args.get('bibtex') %}
 <h2>Generated BibTeX</h2>
-<textarea rows="10" cols="80" readonly>{{ request.args.get('bibtex') }}</textarea>
+<button type="button" onclick="toggleBibtex()">Hide/show bibtex</button><br>
+<textarea id="bibtexTextarea" rows="10" cols="80" readonly>{{ request.args.get('bibtex') }}</textarea>
 {% endif %}
+
+<br>
 
 <form method="POST" action="/generate_bibtex">
 
