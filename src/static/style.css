@@ -25,6 +25,8 @@ header {
 h1 {
     font-family: 'Source Code Pro', monospace;
     display: flex;
+    font-weight: 500;
+
     justify-content: center;
     align-items: center;
     font-size: 40px;
@@ -34,8 +36,7 @@ h1 {
 h2 {
     font-family: 'Source Code Pro', monospace;
     text-shadow: 0px 0px 1px #373737;
-
-
+    font-weight: 500;
 }
 
 .blackletter {
@@ -144,4 +145,58 @@ div.input_form {
     background-color: #efefef;
     border-radius: 10px;
     box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+    color: rgb(0, 0, 0);
+    background-color: #e77272;
+    opacity: 0.7;
+    padding: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+
+}
+
+.delete-btn:hover {
+    background-color: #e77272;
+    color: #FFF;
+    transform: translateY(0px);
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+
+
+}
+
+button {
+    background-color: #ffffff;
+    color: rgb(98, 98, 98);
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #f0f0f0;
+    color: #757575;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#bibtexTextarea {
+    width: 90%;
+    padding: 12px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
 }

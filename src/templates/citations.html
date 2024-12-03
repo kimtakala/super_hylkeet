@@ -27,6 +27,9 @@ Generate BibTex-code from all citations or choose specific citations.
             citation.get_year() }}</label>
         <input type="checkbox" id="citation_{{ loop.index }}" name="citations" value="{{ citation.id }}"
             onclick="event.stopPropagation();">
+        <form action="/delete_citation/{{ citation.id }}" method="POST" style="display: inline;">
+            <button type="submit" class="delete-btn">delete</button>
+        </form>
     </h4>
     <div id="details_{{ loop.index }}" class="details" style="display: none;">
         {% for data_line in citation.get_datalines() %}
