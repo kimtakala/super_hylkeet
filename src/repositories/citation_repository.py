@@ -23,6 +23,7 @@ def search_citations(search_key):
                 WHERE a.main_author = true AND c.hidden = FALSE AND (
                     c.title LIKE :search_key OR
                     LOWER(c.tags) LIKE LOWER(:search_key) OR
+                    LOWER(c.key) LIKE LOWER(:search_key) OR
                     LOWER(a.first_name) LIKE LOWER(:search_key) OR
                     LOWER(a.last_name) LIKE LOWER(:search_key))
                 ORDER BY a.last_name ASC
