@@ -200,3 +200,8 @@ button:hover {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 15px;
 }
+
+div.search {
+    width: fit-content;
+    float: right;
+}
