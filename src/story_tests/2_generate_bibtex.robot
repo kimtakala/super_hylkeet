@@ -8,7 +8,7 @@ Suite Setup Steps
     Open And Configure Browser
 
 *** Variables ***
-${BOOK-BIBTEX}  @book{123,\\s*id\\s*= "[^"]*",\\s*key\\s*= "123",\\s*title\\s*= "scientific study",\\s*year\\s*= 1975,\\s*pages\\s*= "110",\\s*volume\\s*= "1",\\s*publisher\\s*= "Otava",\\s*tags\\s*= "science,\\s*book",\\s*citation_url\\s*= "www.example.com",\\s*timestamp\\s*= "[^"]*",\\s*}
+${BOOK-BIBTEX}  @book{123,\\s*key\\s*= "123",\\s*title\\s*= "scientific study",\\s*year\\s*= 1975,\\s*pages\\s*= "110",\\s*volume\\s*= "1",\\s*publisher\\s*= "Otava",\\s*tags\\s*= "science,\\s*book",\\s*citation_url\\s*= "www.example.com",\\s*authors\\s*= "Hylje Maisteri",\\s*}
 
 *** Test Cases ***
 Page Loads
