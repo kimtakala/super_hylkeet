@@ -125,9 +125,7 @@ Deleting **MISC** Citation Works
 Deleting **BOOK** Citation Works
     Go To  ${HOME_URL}
     Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
-    Sleep  3s
-    Click Button  xpath=//h4[label[contains(text(), 'Maisteri')]]//button[@class='delete-btn']
-    Sleep  3s
+    Click Button  xpath=//h4[label[contains(text(),'H. Maisteri: scientific study!, 1975')]]//button[@class='delete-btn']
     Wait Until Page Does Not Contain Element  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]  timeout=10s
     Log  Element should not be visible now
     Element Should Not Be Visible  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]
