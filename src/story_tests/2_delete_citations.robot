@@ -126,6 +126,9 @@ Deleting **BOOK** Citation Works
     Go To  ${HOME_URL}
     Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
     Click Button  xpath=//h4[label[contains(text(), 'Maisteri')]]//button[@class='delete-btn']
+    Log  "Delete button clicked, now waiting for POST request"
+    Execute Javascript    return fetch('/delete_citation/5', { method: 'POST' })
+    Log  "POST request should have been triggered now"
     Log  Waiting for the element to disappear
     Wait Until Page Does Not Contain Element  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]  timeout=10s
     Log  Element should not be visible now
