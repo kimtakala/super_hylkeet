@@ -76,9 +76,9 @@ class TestCitation(unittest.TestCase):
         self.assertEqual(self.citation.all_data["authors"], authors)
 
     def test_get_authors_for_listing(self):
-        authors = ["Author1", "Author2"]
+        authors = ["Author1 Author", "Author2 Author"]
         self.citation.add_authors(", ".join(authors))
-        self.assertEqual(self.citation.get_authors_for_listing(), authors)
+        self.assertEqual(self.citation.get_authors_for_listing(), "A. Author")
 
     def test_datalines_empty_misc(self):
         expected_datalines = [("type", "misc")]
