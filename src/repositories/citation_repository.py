@@ -45,16 +45,11 @@ def get_citation_by_title(title):
     citation = Citation(result.fetchone())
     return citation
 
-def get_citations_by_ids(ids):
-    sql = "SELECT * FROM citations WHERE id = ANY(:ids)"
-    result = db.session.execute(text(sql), {"ids": ids})
-    citations = [Citation(row) for row in result.fetchall()]
-    return citations
 
 def get_citations_by_ids(ids):
-    ids = [int(id) for id in ids]
     sql = "SELECT * FROM citations WHERE id = ANY(:ids)"
-    result = db.session.execute(text(sql), {"ids": ids})
+    result = db.session.execute(
+        text(sql), {"ids": list([int(i) for i in ids])})
     citations = [Citation(row) for row in result.fetchall()]
     return citations
 

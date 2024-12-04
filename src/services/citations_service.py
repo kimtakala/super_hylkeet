@@ -4,6 +4,7 @@ from repositories.citation_repository import (
     search_citations,
     get_citation_by_title,
     delete_by_id,
+    get_citations_by_ids
 )
 from repositories.authors_repository import (
     add_author_by_citation_id,
@@ -64,6 +65,15 @@ class CitationService:
             if field not in data:
                 data[field] = ""
         return data
+
+    def get_citations_for_bibtex(self, citation_ids):
+        citations = get_citations_by_ids(citation_ids)
+        for citation in citations:
+            authors = get_authors_by_citation_id(citation.id)
+            # parsin the author data to firstname lastname, firstname lastname format
+            author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
+            citation.add_authors(author_string)
+        return citations
 
 
 citation_service = CitationService()
