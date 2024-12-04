@@ -42,3 +42,8 @@ jobs:
         run: poetry run pytest
       - name: Run robot tests
         run: bash run_robot_tests.sh
+      - name: Upload Robot Framework logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: robot-framework-logs
+          path: output/
