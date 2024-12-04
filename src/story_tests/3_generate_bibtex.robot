@@ -9,7 +9,7 @@ Suite Setup Steps
     Reset Citations
 
 *** Variables ***
-${BOOK-BIBTEX}  '@book{123, id = ".*", key = "123", title = "scientific study", year = 1975, pages = "110", volume = "1", publisher = "Otava", tags = "science, book", citation_url = "www.example.com", timestamp = ".*" }'
+${BOOK-BIBTEX}  @book{123,\\s*id\\s*= "[^"]*",\\s*key\\s*= "123",\\s*title\\s*= "scientific study",\\s*year\\s*= 1975,\\s*pages\\s*= "110",\\s*volume\\s*= "1",\\s*publisher\\s*= "Otava",\\s*tags\\s*= "science,\\s*book",\\s*citation_url\\s*= "www.example.com",\\s*timestamp\\s*= "[^"]*",\\s*}
 
 *** Test Cases ***
 Page Loads
@@ -47,4 +47,4 @@ BibTeX-code is generated correctly
     Click Button  generate
     Wait Until Element Is Visible  xpath=//textarea[@id='bibtexTextarea']
     ${generated_bibtex}=  Get Text  xpath=//textarea[@id='bibtexTextarea']
-    Should Match Regexp  ${generated_bibtex}  @book{123,\\s*id\\s*= "[^"]*",\\s*key\\s*= "123",\\s*title\\s*= "scientific study",\\s*year\\s*= 1975,\\s*pages\\s*= "110",\\s*volume\\s*= "1",\\s*publisher\\s*= "Otava",\\s*tags\\s*= "science,\\s*book",\\s*citation_url\\s*= "www.example.com",\\s*timestamp\\s*= "[^"]*",\\s*}
+    Should Match Regexp  ${generated_bibtex}  ${BOOK-BIBTEX}
