@@ -1,5 +1,4 @@
 from db_helper import COLUMN_NAMES
-from repositories import authors_repository
 
 
 class Citation:
@@ -12,18 +11,12 @@ class Citation:
                 self._data[COLUMN_NAMES[i]] = value
 
     @property
-    def id(self):
-        return self._data["id"]
+    def all_data(self):
+        return self._data
 
     @property
-    def authors(self):
-        return self._data["authors"]
-
-    def __str__(self):
-        return str(self._data)
-
-    def get_entrys(self):
-        return self._data.keys()
+    def id(self):
+        return self._data["id"]
 
     def get_title(self):
         if "title" not in self._data:
@@ -39,11 +32,10 @@ class Citation:
         self._data["authors"] = authors
 
     def get_datalines(self):
-        # This funktion returns all relevant datafields. Not including the title.
+        # This function returns all relevant datafields. Not including the title.
         new_dict = self._data
         # Removing not essential field form the dictinary
         # Basicly these field are not shown in the fronend dropdown.
-        new_dict.pop("title", None)
         new_dict.pop("id", None)
         new_dict.pop("timestamp", None)
 
@@ -51,6 +43,5 @@ class Citation:
         return list((k, v) for k, v in new_dict.items())
 
     def get_authors_for_listing(self):
-        authors = authors_repository.get_authors_for_citation_listing(
-            self._data["id"])
-        return authors
+        names = self._data["authors"].split(", ")[0].split(" ")
+        return f"{names[0][0]}. {' '.join(names[1:])}"

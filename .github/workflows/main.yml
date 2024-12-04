@@ -4,12 +4,10 @@ on:
   push:
     branches:
       - main
-      - form
       - sprint*
   pull_request:
     branches:
       - main
-      - form
       - sprint*
 
 jobs:
@@ -21,24 +19,47 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          
       - name: Install Poetry
         run: pip install poetry
+
       - name: Set environment variables
         env:
           DATABASE_URL: ${{ secrets.PSQL_DATABASE_URL }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           echo "DATABASE_URL=$DATABASE_URL" >> $GITHUB_ENV
+          echo "SECRET_KEY=$SECRET_KEY" >> $GITHUB_ENV
+
       - name: Setup chromedriver
         uses: nanasess/setup-chromedriver@master
+
       - run: |
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+
       - name: Install dependencies
         run: poetry install
+
       - name: Run pylint tests
         run: poetry run pylint --rcfile=.pylintrc src/
+
       - name: Run unit tests
-        run: poetry run pytest
+        run: poetry run coverage run --branch -m pytest
+
+      - name: Coverage report
+        run: poetry run coverage xml
+      - name: Coverage report to Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Run robot tests
         run: bash run_robot_tests.sh
+
+      - name: Upload Robot Framework logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-framework-logs
+          path: output/

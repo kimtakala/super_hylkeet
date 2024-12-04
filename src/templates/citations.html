@@ -1,27 +1,38 @@
+<script type="text/javascript" src="../static/citations.js"></script>
+
 <h2>Citations</h2>
+<div style="text-align: center;">
+Generate BibTex-code from all citations or choose specific citations.</div>
+<p>
 
-{% for citation in listed_citations %}
-<h4 class="title" onclick="toggleDetails('details_{{ loop.index }}', 'arrow_{{ loop.index }}')">
-    <span id="arrow_{{ loop.index }}">&#x25B6;</span>
-    {{ citation.get_authors_for_listing() }}: {{ citation.get_title() }}, {{ citation.get_year() }}
-</h4>
-<div id="details_{{ loop.index }}" class="details" style="display: none;">
-    {% for data_line in citation.get_datalines() %}
-    <p><strong>{{ data_line[0] }}:</strong> {{ data_line[1] }}</p>
+    {% if request.args.get('bibtex') %}
+<h2>Generated BibTeX</h2>
+<button type="button" onclick="toggleBibtex()">Hide/show bibtex</button><br>
+<textarea id="bibtexTextarea" rows="10" cols="80" readonly>{{ request.args.get('bibtex') }}</textarea>
+{% endif %}
+
+<br>
+
+<form action="/generate_bibtex" method="POST">
+    <button type="button" id="select_all" onclick="toggleCheckboxes(true)">Select All</button>
+    <button type="button" onclick="toggleCheckboxes(false)">Clear</button>
+    <button type="submit" id="generate">Generate</button>
+
+    {% for citation in listed_citations %}
+    <h4 class="title" onclick="toggleDetails('details_{{ loop.index }}', 'arrow_{{ loop.index }}')">
+        <span id="arrow_{{ loop.index }}">&#x25B6;</span>
+        <label for="citation_{{ loop.index }}">{{ citation.get_authors_for_listing() }}: {{ citation.get_title() }}, {{
+            citation.get_year() }}</label>
+        <input type="checkbox" id="citation_{{ loop.index }}" name="citations" value="{{ citation.id }}"
+            onclick="event.stopPropagation();">
+        <button onclick="deleteCitation('{{ citation.id }}'); return false;" class="delete-btn">Delete</button>
+    </h4>
+
+    <div id="details_{{ loop.index }}" class="details" style="display: none;">
+        {% for data_line in citation.get_datalines() %}
+        <p><strong>{{ data_line[0] }}:</strong> {{ data_line[1] }}</p>
+        {% endfor %}
+    </div>
     {% endfor %}
-</div>
-{% endfor %}
+</form>
 
-<script>
-    function toggleDetails(detailsId, arrowId) {
-        var details = document.getElementById(detailsId);
-        var arrow = document.getElementById(arrowId);
-        if (details.style.display === "none") {
-            details.style.display = "block";
-            arrow.innerHTML = "&#x25BC;";
-        } else {
-            details.style.display = "none";
-            arrow.innerHTML = "&#x25B6;";
-        }
-    }
-</script>

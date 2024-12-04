@@ -1,7 +1,15 @@
-from repositories.citation_repository \
-    import add_citation, get_citations, get_citation_by_title
-from repositories.authors_repository \
-    import add_author_by_citation_id, get_authors_by_citation_id
+from repositories.citation_repository import (
+    add_citation,
+    get_citations,
+    search_citations,
+    get_citation_by_title,
+    delete_by_id,
+    get_citations_by_ids
+)
+from repositories.authors_repository import (
+    add_author_by_citation_id,
+    get_authors_by_citation_id,
+)
 from config import db
 from db_helper import COLUMN_NAMES
 
@@ -31,14 +39,21 @@ class CitationService:
         # the others wont be commited.
         db.session.commit()
 
-    def get_citations(self):
-        citations = get_citations()
+    def fetch_citations(self, search_key=""):  # changed name to be unique
+        if search_key == "":
+            citations = get_citations()
+        else:
+            citations = search_citations(search_key)
+
         for citation in citations:
             authors = get_authors_by_citation_id(citation.id)
             # parsin the author data to firstname lastname, firstname lastname format
             author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
         return citations
+
+    def delete_citation_by_id(self, id):
+        delete_by_id(id)
 
     def fill_data_with_nones(self, data):
         data = data.to_dict()
@@ -50,6 +65,15 @@ class CitationService:
             if field not in data:
                 data[field] = ""
         return data
+
+    def get_citations_for_bibtex(self, citation_ids):
+        citations = get_citations_by_ids(citation_ids)
+        for citation in citations:
+            authors = get_authors_by_citation_id(citation.id)
+            # parsin the author data to firstname lastname, firstname lastname format
+            author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
+            citation.add_authors(author_string)
+        return citations
 
 
 citation_service = CitationService()

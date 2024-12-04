@@ -33,13 +33,15 @@ TABLE_CITATIONS = """
                     timestamp TEXT
                 """
 
-TABLE_AUTHROS = """
+TABLE_AUTHORS = """
                     id SERIAL PRIMARY KEY,
                     citation_id INT NOT NULL,
                     first_name TEXT,
                     last_name TEXT,
                     main_author BOOLEAN,
-                    FOREIGN KEY (citation_id) REFERENCES citations(id)
+                    FOREIGN KEY (citation_id) 
+                        REFERENCES citations(id)
+                        ON DELETE CASCADE
                 """
 
 
@@ -66,7 +68,7 @@ def reset_table(table_name):
 
 
 def setup_table(table_name):
-    tables = {"citations": TABLE_CITATIONS, "authors": TABLE_AUTHROS}
+    tables = {"citations": TABLE_CITATIONS, "authors": TABLE_AUTHORS}
 
     if table_name not in tables:
         raise ValueError(f"Table name {table_name} not regognized.")

@@ -8,6 +8,8 @@
 
 
 def verify_author(authors):
+    if authors == "":
+        return "Authors is a required field"
     if len(authors) > 200:
         return "Authors field must include less than 200 characters"
 
@@ -23,6 +25,8 @@ def verify_author(authors):
 
 
 def verify_title(title):
+    if title == "":
+        return "Title is a required field"
     if len(title) > 200:
         return "Title must be shorter than 200 characters"
 
@@ -30,6 +34,8 @@ def verify_title(title):
 
 
 def verify_year(year):
+    if year == "":
+        return "Year is a required field"
     if year != "":
         year = int(year)
 
@@ -43,6 +49,8 @@ def verify_year(year):
 
 
 def verify_booktitle(title):
+    if title == "":
+        return "Booktitle is a required field"
     if len(title) > 200:
         return "Booktitle must be shorter than 200 characters"
 
@@ -50,6 +58,8 @@ def verify_booktitle(title):
 
 
 def verify_journal(journal):
+    if journal == "":
+        return "Journal is a required field"
     if len(journal) > 200:
         return "Journal name must be shorter than 200 characters"
 
@@ -71,6 +81,8 @@ def verify_pages(pages):
 
 
 def verify_publisher(publisher):
+    if publisher == "":
+        return "Publisher is a required field"
     if len(publisher) > 200:
         return "Publisher field must include less than 200 characters"
 
@@ -80,7 +92,7 @@ def verify_publisher(publisher):
 def validate_citations(citation):
     checks = {}
 
-    checks["author"] = verify_author(citation["authors"])
+    checks["authors"] = verify_author(citation["authors"])
     checks["title"] = verify_title(citation["title"])
     checks["year"] = verify_year(citation["year"])
     checks["booktitle"] = verify_booktitle(citation.get("booktitle", ""))
@@ -89,9 +101,9 @@ def validate_citations(citation):
     checks["pages"] = verify_pages(citation.get("pages", ""))
     checks["publisher"] = verify_publisher(citation["publisher"])
 
-    required_fields = {"article": ["author", "title", "journal", "year"],
-                       "book": ["author", "title", "publisher", "year"],
-                       "inproceedings": ["author", "title", "booktitle", "year"],
+    required_fields = {"article": ["authors", "title", "journal", "year"],
+                       "book": ["authors", "title", "publisher", "year"],
+                       "inproceedings": ["authors", "title", "booktitle", "year"],
                        "misc": []
                        }
 
@@ -105,7 +117,7 @@ def validate_citations(citation):
     # Move all not empty not required field from checks to errors.
     for k, v in citation.items():
         if v != "" and k not in required_fields[citation["type"]]\
-            and k in checks and checks[k]:
+                and k in checks and checks[k]:
             errors[k] = checks[k]
 
     return errors
