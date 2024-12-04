@@ -44,4 +44,4 @@ class Citation:
 
     def get_authors_for_listing(self):
         names = self._data["authors"].split(", ")[0].split(" ")
-        return f"{names[-2][0]}. {names[-1]}"
+        return f"{names[0][0]}. {names[1]}"
