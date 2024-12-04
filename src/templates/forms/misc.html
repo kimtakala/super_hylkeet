@@ -9,7 +9,9 @@
         <input type="text" id="key_misc" name="key"><br><br>
 
         <label for="authors">Authors:</label><br>
-        <input type="text" id="authors_misc" name="authors"><br><br>
+        <input type="text" id="authors_article" name="authors"
+               pattern="([A-Za-z]+ [A-Za-z]+, )*([A-Za-z]+ [A-Za-z]+)"
+               title="Input authors in FirstName LastName, ... format"><br><br>
 
         <label for="howpublished">How published:</label><br>
         <input type="text" id="howpublished_misc" name="howpublished"><br><br>
