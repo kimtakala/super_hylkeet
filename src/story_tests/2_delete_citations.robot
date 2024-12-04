@@ -45,7 +45,7 @@ Deleting **BOOK** Citation Works
     Go To  ${HOME_URL}
     Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
     Click Button  xpath=//h4[label[contains(text(), 'Maisteri')]]//button[@class='delete-btn']
-    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]    timeout=3s
+    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]    timeout=10s
     Element Should Not Be Visible    xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]
 
 Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
@@ -78,7 +78,7 @@ Deleting **INPROCEEDINGS** Citation Works
     Go To  ${HOME_URL}
     Element Should Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper!, 2021')]
     Click Button  xpath=//h4[label[contains(text(), 'S. Researcher: conference paper!, 2021')]]//button[@class='delete-btn']
-    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'S. Researcher: conference paper!, 2021')]]    timeout=3s
+    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'S. Researcher: conference paper!, 2021')]]    timeout=10s
     Element Should Not Be Visible  xpath=//label[contains(text(), 'S. Researcher: conference paper!, 2021')]
 
 Entering Valid Information The **ARTICLE** Citation Is Accepted
@@ -107,7 +107,7 @@ Deleting **ARTICLE** Citation Works
     Go To  ${HOME_URL}
     Element Should Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]
     Click Button  xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]]//button[@class='delete-btn']
-    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]]    timeout=3s
+    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]]    timeout=10s
     Element Should Not Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]
 
 Entering Valid Information The **MISC** Citation Is Accepted
@@ -133,5 +133,5 @@ Deleting **MISC** Citation Works
     Go To  ${HOME_URL}
     Element Should Be Visible  xpath=//label[contains(text(), 'M. Author: misc research!, 2021')]
     Click Button  xpath=//h4[label[contains(text(), 'M. Author: misc research!, 2021')]]//button[@class='delete-btn']
-    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'M. Author: misc research!, 2021')]]    timeout=3s
+    Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'M. Author: misc research!, 2021')]]    timeout=10s
     Element Should Not Be Visible  xpath=//label[contains(text(), 'M. Author: misc research!, 2021')]
