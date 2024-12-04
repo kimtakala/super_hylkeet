@@ -182,8 +182,6 @@ div.input_form {
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
     float: right;
-
-
 }
 
 .delete-btn:hover {
@@ -191,8 +189,27 @@ div.input_form {
     color: #FFF;
     transform: translateY(0px);
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
 
+.edit-btn {
+    color: rgb(0, 0, 0);
+    background-color: yellow;
+    opacity: 0.7;
+    padding: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    float: right;
+}
 
+.edit-btn:hover {
+    background-color: yellow;
+    color: #a0a0a0;
+    transform: translateY(0px);
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 button {
