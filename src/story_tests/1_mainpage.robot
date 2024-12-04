@@ -6,7 +6,6 @@ Suite Teardown   Close Browser
 *** Keywords ***
 Suite Setup Steps
     Open And Configure Browser
-    Reset Citations
 
 *** Test Cases ***
 Page Loads
