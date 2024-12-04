@@ -43,5 +43,5 @@ class Citation:
         return list((k, v) for k, v in new_dict.items())
 
     def get_authors_for_listing(self):
-        authors = self._data["authors"].split(", ")
-        return authors
+        firts_name, last_name = self._data["authors"].split(", ")[0].split(" ")
+        return f"{firts_name[0]}. {last_name}"
