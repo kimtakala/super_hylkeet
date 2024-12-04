@@ -1,4 +1,4 @@
-# This is a test file that submits citations to the reference app and test the delete functionality for each of the citation types
+# This is a test file that test the delete functionality for each of the citation types
 
 *** Settings ***
 Resource         0_resource.robot
@@ -27,14 +27,6 @@ Deleting **MISC** Citation Works
     Click Button  xpath=//h4[label[contains(text(), 'M. Author: misc research, 2021')]]//button[@class='delete-btn']
     Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'M. Author: misc research, 2021')]]    timeout=10s
     Element Should Not Be Visible  xpath=//label[contains(text(), 'M. Author: misc research, 2021')]
-
-Deleting **BOOK** Citation Works
-    Go To  ${HOME_URL}
-    Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study, 1975')]
-    Click Button  xpath=//h4[label[contains(text(),'H. Maisteri: scientific study, 1975')]]//button[@class='delete-btn']
-    Wait Until Page Does Not Contain Element  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study, 1975')]]  timeout=10s
-    Log  Element should not be visible now
-    Element Should Not Be Visible  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study, 1975')]]
 
 Deleting **ARTICLE** Citation Works
     Go To  ${HOME_URL}

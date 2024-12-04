@@ -1,7 +1,12 @@
 *** Settings ***
 Resource         0_resource.robot
-Suite Setup      Open And Configure Browser
+Suite Setup      Suite Setup Steps
 Suite Teardown   Close Browser
+
+*** Keywords ***
+Suite Setup Steps
+    Open And Configure Browser
+    Reset Citations
 
 *** Test Cases ***
 Page Loads
