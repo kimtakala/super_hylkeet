@@ -1,7 +1,7 @@
 # This is a test file that submits citations to the reference app and test the delete functionality for each of the citation types
 
 *** Settings ***
-Resource  resource.robot
+Resource         0_resource.robot
 Suite Setup      Suite Setup Steps
 Suite Teardown   Close Browser
 
@@ -9,11 +9,6 @@ Suite Teardown   Close Browser
 Suite Setup Steps
     Open And Configure Browser
     Reset Citations
-
-Element Not Exist
-    [Arguments]    ${xpath}
-    ${element_present}    Run Keyword And Return Status    Page Should Contain Element    ${xpath}
-    Return    not ${element_present}
 
 *** Test Cases ***
 Page Loads
@@ -48,15 +43,10 @@ Entering Valid Information The **BOOK** Citation Is Accepted
 
 Deleting **BOOK** Citation Works
     Go To  ${HOME_URL}
-
     Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
-
     Click Button  xpath=//h4[label[contains(text(), 'Maisteri')]]//button[@class='delete-btn']
-
     Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]    timeout=3s
-
     Element Should Not Be Visible    xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]
-    Page Should Not Contain Element  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]
 
 Entering Valid Information The **INPROCEEDINGS** Citation Is Accepted
     Go To  ${HOME_URL}

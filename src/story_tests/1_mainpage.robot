@@ -1,5 +1,5 @@
 *** Settings ***
-Resource  resource.robot
+Resource         0_resource.robot
 Suite Setup      Open And Configure Browser
 Suite Teardown   Close Browser
 Test Setup       Reset Citations
