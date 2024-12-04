@@ -49,11 +49,40 @@ class TestCitation(unittest.TestCase):
         title = self.citation.get_title()
         self.assertEqual(title, "Test title")
 
+    def test_return_data(self):
+        data = self.stub.get_citation()
+        expected_data = dict([(COLUMN_NAMES[i], data[i])
+                              for i in range(len(COLUMN_NAMES))])
+        self.assertDictEqual(expected_data, self.citation.all_data)
+
+    def test_correct_id(self):
+        self.assertEqual(1, self.citation.id)
+
     def test_get_title_empty(self):
         title = self.misc.get_title()
         self.assertEqual(title, "No Title")
 
+    def test_get_year(self):
+        year = self.citation.get_year()
+        self.assertEqual(year, 2024)
+
+    def test_get_year_empty(self):
+        year = self.misc.get_year()
+        self.assertEqual(year, "No Year")
+
+    def test_add_authors(self):
+        authors = ["Author1", "Author2"]
+        self.citation.add_authors(authors)
+        self.assertEqual(self.citation.all_data["authors"], authors)
+
+    def test_get_authors_for_listing(self):
+        authors = ["Author1", "Author2"]
+        self.citation.add_authors(", ".join(authors))
+        self.assertEqual(self.citation.get_authors_for_listing(), authors)
+
     def test_datalines_empty_misc(self):
+        expected_datalines = [("type", "misc")]
+        self.assertEqual(self.misc.get_datalines(), expected_datalines)
 
     def test_get_datalines(self):
         data = self.stub.get_citation()
