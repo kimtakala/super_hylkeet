@@ -1,7 +1,6 @@
 from flask import render_template, jsonify, request, redirect, url_for, flash
 from form_verification import validate_citations
 from services.citations_service import citation_service
-from repositories.citation_repository import get_citations_by_ids
 from db_helper import reset_db
 from config import app, test_env
 import bibtex_ref_gen
@@ -32,7 +31,8 @@ def add_citation_route():
 @app.route("/generate_bibtex", methods=["POST"])
 def generate_bibtex_route():
     selected_citation_ids = request.form.getlist("citations")
-    citations = get_citations_by_ids(selected_citation_ids)
+    citations = citation_service.get_citations_for_bibtex(
+        selected_citation_ids)
 
     bibtex_entries = bibtex_ref_gen.generate_references(citations)
 
