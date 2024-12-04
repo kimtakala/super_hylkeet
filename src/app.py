@@ -41,8 +41,8 @@ def generate_bibtex_route():
 
 
 @app.route("/delete_citation/<int:id>", methods=["POST"])
-def delete_citation(id):
-    citation_service.delete_citation_by_id(id)
+def delete_citation(citation_id):
+    citation_service.delete_citation_by_id(citation_id)
     citations = citation_service.fetch_citations()
 
     return redirect(url_for("index", listed_citations=citations))

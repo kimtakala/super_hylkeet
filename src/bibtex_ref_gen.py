@@ -9,7 +9,8 @@ from entities.citation import Citation
 
 def generate_reference(citation_data: "Citation") -> str:
     '''
-    takes a class:Citation object and returns a string with all of the data in the BibTeX reference format.
+    takes a class:Citation object and returns a string with
+    all of the data in the BibTeX reference format.
     '''
     all_data = citation_data.all_data
     # print(f'{all_data}')
@@ -26,7 +27,8 @@ def generate_reference(citation_data: "Citation") -> str:
 
 def generate_references(lst: list["Citation"]) -> list:
     '''
-    returns a list of strings that contain the references in the correct BibTeX reference format.
+    returns a list of strings that contain the references
+    in the correct BibTeX reference format.
     '''
     result_list = []
     for cit in lst:
