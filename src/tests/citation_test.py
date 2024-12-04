@@ -21,20 +21,39 @@ class CitationStub:
             "2024-11-19",
         ]
 
+    def get_misc(self):
+        return [
+            1,
+            "",
+            "misc",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "2024-11-19",
+        ]
+
 
 class TestCitation(unittest.TestCase):
     def setUp(self):
         self.stub = CitationStub()
         self.citation = Citation(self.stub.get_citation())
+        self.misc = Citation(self.stub.get_misc())
 
     def test_get_title(self):
         title = self.citation.get_title()
-        print(title)
         self.assertEqual(title, "Test title")
 
-    def test_get_entrys(self):
-        self.assertListEqual(
-            list(self.citation.get_entrys()), COLUMN_NAMES)
+    def test_get_title_empty(self):
+        title = self.misc.get_title()
+        self.assertEqual(title, "No Title")
+
+    def test_datalines_empty_misc(self):
 
     def test_get_datalines(self):
         data = self.stub.get_citation()
@@ -43,7 +62,6 @@ class TestCitation(unittest.TestCase):
 
         # Pop fields id, title and timestamp
         expected_datalines.pop(0)
-        expected_datalines.pop(2)
-        expected_datalines.pop(10)
+        expected_datalines.pop(11)
 
         self.assertEqual(self.citation.get_datalines(), expected_datalines)

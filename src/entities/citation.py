@@ -19,13 +19,6 @@ class Citation:
     def id(self):
         return self._data["id"]
 
-    @property
-    def authors(self):
-        return self._data["authors"]
-
-    def get_entrys(self):
-        return self._data.keys()
-
     def get_title(self):
         if "title" not in self._data:
             return "No Title"
@@ -44,7 +37,6 @@ class Citation:
         new_dict = self._data
         # Removing not essential field form the dictinary
         # Basicly these field are not shown in the fronend dropdown.
-        new_dict.pop("title", None)
         new_dict.pop("id", None)
         new_dict.pop("timestamp", None)
 
