@@ -23,9 +23,6 @@ class Citation:
     def authors(self):
         return self._data["authors"]
 
-    def __str__(self):
-        return str(self._data)
-
     def get_entrys(self):
         return self._data.keys()
 

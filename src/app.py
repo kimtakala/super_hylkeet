@@ -6,9 +6,10 @@ from config import app, test_env
 import bibtex_ref_gen
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    citations = citation_service.fetch_citations()
+    query = "" if request.method == "GET" else request.form["query"]
+    citations = citation_service.fetch_citations(search_key=query)
     return render_template("index.html", listed_citations=citations)
 
 
