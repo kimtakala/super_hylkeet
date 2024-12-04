@@ -2,7 +2,6 @@
 Resource         0_resource.robot
 Suite Setup      Open And Configure Browser
 Suite Teardown   Close Browser
-Test Setup       Reset Citations
 
 *** Test Cases ***
 Page Loads
@@ -102,22 +101,4 @@ Entering Valid Information The **MISC** Citation Is Accepted
     Title Should Be  Reference app
     ${value}=  Get Value  id=tags_misc
     Should Be Empty  ${value}
-
-# Entering Valid Information The Citation Is Shown On Page
-#     Go To  ${HOME_URL}
-#     Click Button  reference
-#     Select From List By Value  type  article
-#     Input Text  title  very scientific study
-#     Input Text  key  vip123
-#     Input Text  authors  Hylkeet et. al. et. co.
-#     Input Text  year  2001
-#     Input Text  doi  www.da_doih.fi/123/666
-#     Input Text  pages  124
-#     Input Text  volume  12.
-#     Input Text  publisher  Nature
-#     Click Button  submit
-#     Title Should Be  Reference app
-#     Page Should Contain  very scientific study
-#     ${value}=  Get Value  tags
-#     Should Be Empty  ${value}
 
