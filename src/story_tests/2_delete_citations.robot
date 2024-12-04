@@ -122,18 +122,18 @@ Deleting **MISC** Citation Works
     Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'M. Author: misc research!, 2021')]]    timeout=10s
     Element Should Not Be Visible  xpath=//label[contains(text(), 'M. Author: misc research!, 2021')]
 
+Deleting **BOOK** Citation Works
+    Go To  ${HOME_URL}
+    Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
+    Click Button  xpath=//h4[label[contains(text(), 'Maisteri')]]//button[@class='delete-btn']
+    Log  Waiting for the element to disappear
+    Wait Until Page Does Not Contain Element  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]  timeout=10s
+    Log  Element should not be visible now
+    Element Should Not Be Visible  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]
+
 Deleting **ARTICLE** Citation Works
     Go To  ${HOME_URL}
     Element Should Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]
     Click Button  xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]]//button[@class='delete-btn']
     Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]]    timeout=10s
     Element Should Not Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research!, 2020')]
-
-Deleting **BOOK** Citation Works
-    Go To  ${HOME_URL}
-    Element Should Be Visible  xpath=//label[contains(text(), 'H. Maisteri: scientific study!, 1975')]
-    Click Button  xpath=//h4[label[contains(text(), 'Maisteri')]]//button[@class='delete-btn']
-    Log  Waiting for the element to disappear
-    Wait Until Element Is Not Visible  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]  timeout=10s
-    Log  Element should not be visible now
-    Element Should Not Be Visible  xpath=//h4[label[contains(text(), 'H. Maisteri: scientific study!, 1975')]]
