@@ -9,7 +9,9 @@
         <input type="text" id="key_article" name="key" required><br><br>
 
         <label for="authors">Authors: *</label><br>
-        <input type="text" id="authors_article" name="authors" required><br><br>
+        <input type="text" id="authors_article" name="authors" required
+               pattern="([A-Za-z]+ [A-Za-z]+, )*([A-Za-z]+ [A-Za-z]+)"
+               title="Input authors in FirstName LastName, ... format"><br><br>
 
         <label for="year">Year: *</label><br>
         <input type="number" id="year_article" name="year" required><br><br>
