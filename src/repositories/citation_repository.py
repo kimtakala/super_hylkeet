@@ -93,6 +93,34 @@ def add_citation(data):
     )
 
 
+def edit_citation(id, data):
+    sql = text(
+         """UPDATE citations
+            SET title = :title, key = :key, year = :year, type = :type,
+                doi = :doi, pages = :pages, volume = :volume,
+                publisher = :publisher, tags = :tags, booktitle = :booktitle,
+                citation_url = :citation_url, timestamp = :timestamp
+            WHERE id = :id"""
+    )
+    db.session.execute(
+        sql,
+        {
+            "id": id,
+            "title": data["title"],
+            "key": data["key"],
+            "year": data["year"],
+            "type": data["type"],
+            "doi": data["doi"],
+            "pages": data["pages"],
+            "volume": data["volume"],
+            "publisher": data["publisher"],
+            "tags": data["tags"],
+            "booktitle": data["booktitle"],
+            "citation_url": data["citation_url"]
+        }
+    )
+
+
 def delete_by_id(id):
     sql = text("DELETE FROM citations WHERE id = :id")
     db.session.execute(

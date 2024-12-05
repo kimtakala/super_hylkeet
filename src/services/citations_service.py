@@ -4,11 +4,13 @@ from repositories.citation_repository import (
     search_citations,
     get_citation_by_title,
     delete_by_id,
-    get_citations_by_ids
+    get_citations_by_ids,
+    edit_citation
 )
 from repositories.authors_repository import (
     add_author_by_citation_id,
     get_authors_by_citation_id,
+    delete_authors_by_citation_id
 )
 from config import db
 from db_helper import COLUMN_NAMES
@@ -38,6 +40,26 @@ class CitationService:
         # DB commit here so that if one of the add functions throws error,
         # the others wont be commited.
         db.session.commit()
+
+    def edit_citation(self, citation_id, data):
+        # Edit authors (delete old ones + add new ones)
+        delete_authors_by_citation_id(citation_id)
+
+        if data["authors"] != "":
+            authors = data["authors"].split(", ")
+        else:
+            authors = ["No author"]
+
+        for i, author in enumerate(authors):
+            add_author_by_citation_id(citation_id, author, i == 0)
+
+        # Edit citation
+        edit_citation(citation_id, data)
+
+        # DB commit here so that if one of the add functions throws error,
+        # the others wont be commited.
+        db.session.commit()
+        
 
     def fetch_citations(self, search_key=""):  # changed name to be unique
         if search_key == "":

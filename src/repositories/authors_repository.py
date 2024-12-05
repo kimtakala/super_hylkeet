@@ -25,3 +25,10 @@ def add_author_by_citation_id(citation_id, author, is_main):
             "main_author": is_main
         },
     )
+
+def delete_authors_by_citation_id(citation_id):
+    sql = text(
+        """DELETE FROM authors
+            WHERE citation_id = :id"""
+    )
+    db.session.execute(sql, {"id": citation_id})
