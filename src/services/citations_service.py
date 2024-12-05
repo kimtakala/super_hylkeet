@@ -41,7 +41,10 @@ class CitationService:
         # the others wont be commited.
         db.session.commit()
 
-    def edit_citation(self, citation_id, data):
+    def edit_citation(self, old_title, data):
+        old_citation = get_citation_by_title(old_title)
+        citation_id = old_citation.id
+        
         # Edit authors (delete old ones + add new ones)
         delete_authors_by_citation_id(citation_id)
 

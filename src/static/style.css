@@ -231,6 +231,31 @@ button:hover {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 
 }
+
+.submit-edit-btn {
+    background-color: yellow;
+    color: rgb(98, 98, 98);
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submit-edit-btn:hover {
+    background-color: yellowgreen;
+    color: black;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+#exitEditMode {
+    display: none;
+}
+
 #bibtexTextarea {
     width: 90%;
     font-size: 11px;

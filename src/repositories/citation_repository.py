@@ -99,7 +99,7 @@ def edit_citation(id, data):
             SET title = :title, key = :key, year = :year, type = :type,
                 doi = :doi, pages = :pages, volume = :volume,
                 publisher = :publisher, tags = :tags, booktitle = :booktitle,
-                citation_url = :citation_url, timestamp = :timestamp
+                citation_url = :citation_url
             WHERE id = :id"""
     )
     db.session.execute(

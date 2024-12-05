@@ -29,6 +29,16 @@ def add_citation_route():
     return redirect(url_for("index"))
 
 
+@app.route("/edit_citation/<old_title>", methods=["POST"])
+def edit_citation_route(old_title):
+    citation = request.form
+
+    data = citation_service.fill_data_with_nones(citation)
+    
+    citation_service.edit_citation(str(old_title), data)
+    flash("Citation edited successfully!", "success")
+    return redirect(url_for("index"))
+
 @app.route("/generate_bibtex", methods=["POST"])
 def generate_bibtex_route():
     selected_citation_ids = request.form.getlist("citations")

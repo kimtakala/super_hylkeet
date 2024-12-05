@@ -26,7 +26,7 @@ Generate BibTex-code from all citations or choose specific citations.</div>
         <input type="checkbox" id="citation_{{ loop.index }}" name="citations" value="{{ citation.id }}"
             onclick="event.stopPropagation();">
             <button onclick="deleteCitation('{{ citation.id }}'); return false;" class="delete-btn">Delete</button>
-            <button onclick="editCitation('{{ citation.id }}')" class="edit-btn">Edit</button>
+            <button onclick='editCitation({{ citation._data|tojson|safe }}); return false;' class="edit-btn">Edit</button>
     </h4>
 
     <div id="details_{{ loop.index }}" class="details" style="display: none;">
