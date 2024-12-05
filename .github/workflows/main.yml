@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - sprint*
+      - ci_testing
   pull_request:
     branches:
       - main
