@@ -9,7 +9,9 @@
         <input type="text" id="key_book" name="key" required><br><br>
 
         <label for="authors">Authors: *</label><br>
-        <input type="text" id="authors_book" name="authors" required><br><br>
+        <input type="text" id="authors_book" name="authors" required
+               pattern="([A-Za-z]+ [A-Za-z]+, )*([A-Za-z]+ [A-Za-z]+)"
+               title="Input authors in FirstName LastName, ... format"><br><br>
 
         <label for="publisher">Publisher: *</label><br>
         <input type="text" id="publisher_book" name="publisher" required><br><br>
