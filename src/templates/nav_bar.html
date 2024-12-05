@@ -6,13 +6,10 @@
 
         <!-- Search bar -->
         <div class="search">
-            <input type="text" placeholder="Search..">
-            <select name="search_by" id="search_by">
-                <option value="title">Title</option>
-                <option value="author">Author</option>
-                <option value="tags">Tags</option>
-                <option value="key">Key</option>
-            </select>
+            <form action="/" method="POST">
+                <input type="text" placeholder="Search..", name="query">
+                <input type="submit", value="Search" />
+            </form>
         </div>
     </div>
 </div>

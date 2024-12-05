@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/github/kimtakala/super_hylkeet/graph/badge.svg?token=W3WD4WF2HB)](https://codecov.io/github/kimtakala/super_hylkeet)
+
 # Ohtu miniprojekti 
 
 Lue [täältä](https://ohjelmistotuotanto-hy.github.io/flask/) lisää.

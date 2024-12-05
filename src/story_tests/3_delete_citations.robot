@@ -34,3 +34,7 @@ Deleting **ARTICLE** Citation Works
     Click Button  xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]]//button[@class='delete-btn']
     Wait Until Page Does Not Contain Element    xpath=//h4[label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]]    timeout=10s
     Element Should Not Be Visible  xpath=//label[contains(text(), 'D. Seal Expert: groundbreaking research, 2020')]
+
+
+
+
