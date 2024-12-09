@@ -8,7 +8,7 @@ SORTING_KEYS = {"author": "a.last_name", "title": "c.title",
 
 
 def get_citations(sorting_key="author", sorting_order="ASC"):
-    sql = f"""   SELECT citations.*  FROM citations c
+    sql = f"""   SELECT c.*  FROM citations c
                 LEFT JOIN authors a ON c.id = a.citation_id
                 WHERE a.main_author = true
                 ORDER BY {SORTING_KEYS[sorting_key]} {(sorting_order)}
