@@ -4,10 +4,13 @@
 Resource         0_resource.robot
 Suite Setup      Suite Setup Steps
 Suite Teardown   Close Browser
+Test Setup       Rest And Initialize With One Of Each Citation Type
 
 *** Keywords ***
 Suite Setup Steps
     Open And Configure Browser
+
+
 
 *** Test Cases ***
 Page Loads
