@@ -39,9 +39,9 @@ class CitationService:
         # the others wont be commited.
         db.session.commit()
 
+    # changed name to be unique
 
-# changed name to be unique
-def fetch_citations(self, search_key="", sorting_key="author", sorting_order="ASC"):
+    def fetch_citations(self, search_key="", sorting_key="author", sorting_order="ASC"):
         if search_key == "":
             citations = get_citations(
                 sorting_key=sorting_key, sorting_order=sorting_order)
