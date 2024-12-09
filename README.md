@@ -49,3 +49,4 @@ Ryhmämme määrittää ominaisuuden valmiiksi kun se:
 - toimii halutulla tavalla
 - on testattu
 - on integroitu sovellukseen onnistuneesti
+
