@@ -192,14 +192,13 @@ div.input_form {
     transform: translateY(0px);
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 
-
 }
 
 button {
     background-color: #ffffff;
     color: rgb(98, 98, 98);
     border: none;
-    padding: 10px 20px;
+    padding: 6px;
     font-size: 13px;
     border-radius: 8px;
     cursor: pointer;
@@ -242,3 +241,10 @@ div.search {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   }
  
+form select {
+    background-color: #ffffff;
+    border: 0px;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
