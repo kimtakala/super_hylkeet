@@ -13,6 +13,28 @@ Generate BibTex-code from all citations or choose specific citations.</div>
 
 <br>
 
+<form action="/sort_citations" method="post">
+    <label for="sorting_key">Sort by:</label>
+    <select id="sorting_key" name="sorting_key" required>
+        <option value="year">Year</option>
+        <option value="author">Author</option>
+        <option value="time_added">Time added</option>
+        <option value="title">Title</option>
+    </select>
+
+    <label for="sorting_order">Order:</label>
+    <select id="sorting_order" name="sorting_order" required>
+        <option value="ASC">Ascending</option>
+        <option value="DESC">Descending</option>
+    </select>
+    
+    <button type="submit">Submit</button>
+</form>
+
+<br><br>
+
+
+
 <form action="/generate_bibtex" method="POST">
     <button type="button" id="select_all" onclick="toggleCheckboxes(true)">Select All</button>
     <button type="button" onclick="toggleCheckboxes(false)">Clear</button>

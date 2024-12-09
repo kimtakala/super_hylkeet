@@ -32,8 +32,7 @@ def add_citation_route():
 @app.route("/generate_bibtex", methods=["POST"])
 def generate_bibtex_route():
     selected_citation_ids = request.form.getlist("citations")
-    citations = citation_service.get_citations_for_bibtex(
-        selected_citation_ids)
+    citations = citation_service.get_citations_for_bibtex(selected_citation_ids)
 
     bibtex_entries = bibtex_ref_gen.generate_references(citations)
 
@@ -45,8 +44,19 @@ def generate_bibtex_route():
 def delete_citation(id):
     citation_service.delete_citation_by_id(id)
     citations = citation_service.fetch_citations()
+    citation_service.fetch_citations(search_key=query)
 
     return redirect(url_for("index", listed_citations=citations))
+
+
+@app.route("/sort_citations", methods=["POST"])
+def sort_citations_route():
+    sorting_key = request.form["sorting_key"]
+    sorting_order = request.form["sorting_order"]
+    citations = citation_service.fetch_citations(
+        sorting_key=sorting_key, sorting_order=sorting_order
+    )
+    return render_template("index.html", listed_citations=citations)
 
 
 # testausta varten oleva reitti
