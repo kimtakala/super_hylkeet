@@ -50,9 +50,7 @@ def delete_citation(id):
 
 
 # testausta varten oleva reitti
-if test_env:
-
-    @app.route("/reset_db")
-    def reset_database():
-        reset_db()
-        return jsonify({"message": "db reset"})
+@app.route("/reset_db")
+def reset_database():
+    reset_db()
+    return jsonify({"message": "db reset"})
