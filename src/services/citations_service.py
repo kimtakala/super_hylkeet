@@ -39,7 +39,7 @@ class CitationService:
         # the others wont be commited.
         db.session.commit()
 
-    def fetch_citations(self, search_key=""):  # changed name to be unique
+    def get_citations_with_filter(self, search_key=""):  # changed name to be unique
         if search_key == "":
             citations = get_citations()
         else:
@@ -74,6 +74,5 @@ class CitationService:
             author_string = ", ".join([f"{a[0]} {a[1]}" for a in authors])
             citation.add_authors(author_string)
         return citations
-
 
 citation_service = CitationService()

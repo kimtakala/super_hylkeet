@@ -9,7 +9,7 @@ import bibtex_ref_gen
 @app.route("/", methods=["GET", "POST"])
 def index():
     query = "" if request.method == "GET" else request.form["query"]
-    citations = citation_service.fetch_citations(search_key=query)
+    citations = citation_service.get_citations_with_filter(search_key=query)
     return render_template("index.html", listed_citations=citations)
 
 
@@ -44,7 +44,7 @@ def generate_bibtex_route():
 @app.route("/delete_citation/<int:id>", methods=["POST"])
 def delete_citation(id):
     citation_service.delete_citation_by_id(id)
-    citations = citation_service.fetch_citations()
+    citations = citation_service.get_citations_with_filter()
 
     return redirect(url_for("index", listed_citations=citations))
 
