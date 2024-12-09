@@ -2,7 +2,7 @@ from flask import render_template, jsonify, request, redirect, url_for, flash
 from form_verification import validate_citations
 from services.citations_service import citation_service
 from db_helper import reset_db
-from config import app, test_env
+from config import app
 import bibtex_ref_gen
 
 
@@ -44,7 +44,7 @@ def generate_bibtex_route():
 def delete_citation(id):
     citation_service.delete_citation_by_id(id)
     citations = citation_service.fetch_citations()
-    citation_service.fetch_citations(search_key=query)
+    citation_service.fetch_citations()
 
     return redirect(url_for("index", listed_citations=citations))
 
