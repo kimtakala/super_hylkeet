@@ -15,7 +15,6 @@ def generate_reference(citation_data: "Citation") -> str:
 
     ignored_fields = ["type", "id", "timestamp"]
     all_data = citation_data.all_data
-    # print(f'{all_data}')
     bibtex_reference = "@" + str(all_data['type']) + "{"\
         + str(all_data['key']) + ",\n"
     for key, data in all_data.items():
