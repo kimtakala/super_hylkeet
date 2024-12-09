@@ -24,7 +24,7 @@ def search_citations(search_key, sorting_key="author", sorting_order="ASC"):
     sql = text(f"""   SELECT c.*  FROM citations c
                 LEFT JOIN authors a ON c.id = a.citation_id
                 WHERE a.main_author = true AND (
-                    c.title LIKE :search_key OR
+                    LOWER(c.title) LIKE LOWER(:search_key) OR
                     LOWER(c.tags) LIKE LOWER(:search_key) OR
                     LOWER(c.key) LIKE LOWER(:search_key) OR
                     LOWER(a.first_name) LIKE LOWER(:search_key) OR
