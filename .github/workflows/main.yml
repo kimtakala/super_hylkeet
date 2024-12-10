@@ -59,6 +59,7 @@ jobs:
         run: bash run_robot_tests.sh
 
       - name: Upload Robot Framework logs
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: robot-framework-logs
