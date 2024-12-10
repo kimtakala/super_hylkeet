@@ -4,6 +4,7 @@ Suite Setup      Open And Configure Browser
 Suite Teardown   Close Browser
 Test Setup       Reset Application And Go To Home Page
 
+*** Test Cases ***
 Entering Citation Using Doi
     Go To  ${HOME_URL}
     Click Button  reference
