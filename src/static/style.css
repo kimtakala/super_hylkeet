@@ -294,3 +294,26 @@ form select {
     transform: translateY(-1px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
+
+input[type="text"], input[type="number"] {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    width: 65%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.bib-btn {
+    background-color: #9f97c9;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 6px;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}

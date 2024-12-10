@@ -6,7 +6,7 @@ Generate BibTex-code from all citations or choose specific citations.</div>
 <p>
     {% if request.args.get('bibtex') %}
 <h2>Generated BibTeX</h2>
-<button type="button" onclick="toggleBibtex()">Hide/show bibtex</button><br>
+<button type="button" class="bib-btn" onclick="toggleBibtex()">Hide/show bibtex</button><br>
 <textarea id="bibtexTextarea" rows="10" cols="80" readonly>{{ request.args.get('bibtex') }}</textarea>
 {% endif %}
 
@@ -35,7 +35,7 @@ Generate BibTex-code from all citations or choose specific citations.</div>
 <form action="/generate_bibtex" method="POST">
     <button type="button" id="select_all" onclick="toggleCheckboxes(true)">Select All</button>
     <button type="button" onclick="toggleCheckboxes(false)">Clear</button>
-    <button type="submit" id="generate">Generate</button>
+    <button type="submit" id="generate" class="bib-btn">Generate</button>
 
     {% for citation in listed_citations %}
     <h4 class="title" onclick="toggleDetails('details_{{ loop.index }}', 'arrow_{{ loop.index }}')">
