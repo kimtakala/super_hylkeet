@@ -56,8 +56,8 @@ class CitationService:
             citation.add_authors(author_string)
         return citations
 
-    def delete_citation_by_id(self, id):
-        delete_by_id(id)
+    def delete_citation_by_id(self, citation_id):
+        delete_by_id(citation_id)
 
     def fill_data_with_nones(self, data):
         if type(data) != dict:
