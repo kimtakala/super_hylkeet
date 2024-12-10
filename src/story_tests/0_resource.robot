@@ -1,3 +1,5 @@
+# This is a resource file for the tests that defines the main keywords to be used in the tests
+
 *** Settings ***
 Library  SeleniumLibrary
 Library  Collections
@@ -5,7 +7,7 @@ Library  Collections
 
 *** Variables ***
 ${SERVER}     localhost:5001
-${DELAY}      0.05 seconds
+${DELAY}      0.15 seconds
 ${HOME_URL}   http://${SERVER}
 ${RESET_URL}  http://${SERVER}/reset_db
 ${BROWSER}    chrome
@@ -39,7 +41,7 @@ Initialize Database With Test Data
     Enter Valid Inproceedings Citation
     Enter Valid Misc Citation
 
-Rest And Initialize With One Of Each Citation Type
+Reset And Initialize With One Of Each Citation Type
     Reset Application And Go To Home Page
     Initialize Database With Test Data
 

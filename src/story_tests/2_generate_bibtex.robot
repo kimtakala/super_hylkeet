@@ -1,8 +1,10 @@
+# This is a test file that tests the bibtex code generation functionality.
+
 *** Settings ***
 Resource         0_resource.robot
 Suite Setup      Suite Setup Steps
 Suite Teardown   Close Browser
-Test Setup       Rest And Initialize With One Of Each Citation Type
+Test Setup       Reset And Initialize With One Of Each Citation Type
 
 *** Keywords ***
 Suite Setup Steps

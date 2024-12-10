@@ -1,3 +1,5 @@
+# This is a test file that tests the functionality for submitting citations to the website for each of the citation types
+
 *** Settings ***
 Resource         0_resource.robot
 Suite Setup      Open And Configure Browser

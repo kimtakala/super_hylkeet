@@ -1,8 +1,10 @@
+# This is a test file that tests the sorting functionality for each of the sorting types in both ascending and descending order
+
 *** Settings ***
 Resource         0_resource.robot
 Suite Setup      Open And Configure Browser
 Suite Teardown   Close Browser
-Test Setup       Rest And Initialize With One Of Each Citation Type
+Test Setup       Reset And Initialize With One Of Each Citation Type
 
 
 *** Test Cases ***
