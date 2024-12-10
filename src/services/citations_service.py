@@ -60,7 +60,8 @@ class CitationService:
         delete_by_id(id)
 
     def fill_data_with_nones(self, data):
-        data = data.to_dict()
+        if type(data) != dict:
+            data = data.to_dict()
         required_fields = list(COLUMN_NAMES)
         required_fields.remove("id")
         required_fields.remove("timestamp")

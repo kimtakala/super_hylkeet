@@ -3,6 +3,7 @@ function hideAll() {
     document.getElementById("articleFields").style.display = "none";
     document.getElementById("inproceedingsFields").style.display = "none";
     document.getElementById("miscFields").style.display = "none";
+    document.getElementById("doiFields").style.display = "none";
 }
 
 function showForm() {
@@ -40,6 +41,9 @@ function showArticleType() {
             break;
         case "misc":
             document.getElementById("miscFields").style.display = "block";
+            break;
+        case "doi":
+            document.getElementById("doiFields").style.display = "block";
             break;
     }
 }
