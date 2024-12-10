@@ -9,15 +9,16 @@ header {
     background-color: transparent;
     width: 100%;
     text-align: center;
+    margin-left: -10px;
     padding: 20px;
 }
 
 .content {
-    background-color: #f7f7f7;
+    background-color: #f9f9f9;
     border-radius: 20px;
-    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 700px;
+    max-width: 750px;
     width: 100%;
     margin: auto;
 }
@@ -26,7 +27,6 @@ h1 {
     font-family: 'Source Code Pro', monospace;
     display: flex;
     font-weight: 500;
-
     justify-content: center;
     align-items: center;
     font-size: 40px;
@@ -35,9 +35,12 @@ h1 {
 
 h2 {
     font-family: 'Source Code Pro', monospace;
-    text-shadow: 0px 0px 1px #373737;
+    text-shadow: 0px 0px 2px #4f4f4f;
+    color: #3b3b3b;
+    letter-spacing: 2px;
     font-weight: 500;
     text-align: center;
+    font-size: 20px;
 }
 
 
@@ -50,7 +53,7 @@ h4 {
     background-color: #fafafa; 
     padding: 15px; 
     border-radius: 10px; 
-    margin: 10px 0;
+    margin: 5px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
     transition: all 0.3s ease;
 }
@@ -64,85 +67,83 @@ h4:hover {
 
 .blackletter {
     display: inline-block;
+    letter-spacing: 4px;
     color: #1d1d1d;
     margin: 3px;
-    font-size: 30px;
+    font-size: 25px;
     padding: 0;
-    text-shadow: 0px 0px 1.5px #373737;
-
-
+    text-shadow: 0px 0px 2px #373737;
 }
 
 .letter {
     display: inline-block;
     margin: 3px;
     padding: 0;
-
 }
 
 .letter:nth-child(1) {
     color: #FF6F61;
-    text-shadow: 0px 0px 2px #FF6F61;
+    text-shadow: 0px 0px 4px #FF6F61;
 }
 
 .letter:nth-child(2) {
     color: #FFB84D;
-    text-shadow: 0px 0px 2px #FFB84D;
+    text-shadow: 0px 0px 4px #FFB84D;
 }
 
 .letter:nth-child(3) {
     color: #F7D84A;
-    text-shadow: 0px 0px 2px #F7D84A;
+    text-shadow: 0px 0px 4px #F7D84A;
 }
 
 .letter:nth-child(4) {
     color: #6BCB77;
-    text-shadow: 0px 0px 2px #6BCB77;
+    text-shadow: 0px 0px 4px #6BCB77;
 }
 
 .letter:nth-child(5) {
     color: #4C9FFF;
-    text-shadow: 0px 0px 2px #4C9FFF;
+    text-shadow: 0px 0px 4px #4C9FFF;
 }
 
 .letter:nth-child(6) {
-    color: #5A4D98;
-    text-shadow: 0px 0px 2px #5A4D98;
+    color: #897dc2;
+    text-shadow: 0px 0px 4px #897dc2;
 }
 
 .letter:nth-child(7) {
-    color: #9B5B9A;
-    text-shadow: 0px 0px 2px #9B5B9A;
+    color: #c78fc6;
+    text-shadow: 0px 0px 4px #c78fc6;
 }
 
 .letter:nth-child(8) {
-    color: #FF6F61;
-    text-shadow: 0px 0px 2px #FF6F61;
+    color: #ff938a;
+    text-shadow: 0px 0px 4px #ff938a;
 }
 
 .letter:nth-child(9) {
     color: #FFB84D;
-    text-shadow: 0px 0px 2px #FFB84D;
+    text-shadow: 0px 0px 4px #FFB84D;
 }
 
 .letter:nth-child(10) {
     color: #F7D84A;
-    text-shadow: 0px 0px 2px #F7D84A;
+    text-shadow: 0px 0px 4px #F7D84A;
 }
 
 .letter:nth-child(11) {
     color: #6BCB77;
-    text-shadow: 0px 0px 2px #6BCB77;
+    text-shadow: 0px 0px 4px #6BCB77;
 }
 
 .letter:nth-child(12) {
     color: #4C9FFF;
-    text-shadow: 0px 0px 2px #4C9FFF;
+    text-shadow: 0px 0px 4px #4C9FFF;
 }
 
 .letter:nth-child(13) {
-    color: #5A4D98;
-    text-shadow: 0px 0px 2px #5A4D98;
+    color: #897dc2;
+    text-shadow: 0px 0px 4px #897dc2;
 }
 
 div.sticky {
@@ -171,7 +172,7 @@ div.input_form {
 }
 
 .delete-btn {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     background-color: #e77272;
     opacity: 0.7;
     padding: 2px;
@@ -179,24 +180,21 @@ div.input_form {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 4px #e77272(0, 0, 0, 0.1);
     margin-left: 20px;
     float: right;
-
-
 }
 
 .delete-btn:hover {
     background-color: #e77272;
-    color: #FFF;
+    color: #3b3b3b;
     transform: translateY(0px);
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
-
 }
 
 button {
-    background-color: #ffffff;
-    color: rgb(98, 98, 98);
+    background-color: #9edba4;
+    color: rgb(255, 255, 255);
     border: none;
     padding: 6px;
     font-size: 13px;
@@ -207,14 +205,14 @@ button {
 }
 
 button:hover {
-    background-color: #f0f0f0;
-    color: #757575;
+    background-color: #ffffff;
+    color: #a1a1a1;
     transform: translateY(-1px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-
 }
+
 #bibtexTextarea {
-    width: 90%;
+    width: 96%;
     font-size: 11px;
     padding: 15px;
     background-color: #ffffff;
@@ -225,8 +223,7 @@ button:hover {
     resize: vertical;
     margin-top: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    }
+}
     
 div.search {
     width: fit-content;
@@ -243,8 +240,57 @@ div.search {
  
 form select {
     background-color: #ffffff;
+    color: #424242;
     border: 0px;
     border-radius: 5px;
     padding: 3px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search input[type="text"] {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    width: 60%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.search input[type="submit"] {
+    background-color: #f6a84f;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 6px;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search input[type="submit"]:hover {
+    background-color: #ffffff;
+    color: #a1a1a1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#reference.collapsible {
+    background-color: #78bff3;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 6px;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+#reference.collapsible:hover {
+    background-color: #ffffff;
+    color: #a1a1a1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
