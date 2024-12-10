@@ -1,6 +1,7 @@
 from flask import render_template, jsonify, request, redirect, url_for, flash
 from form_verification import validate_citations
 from services.citations_service import citation_service
+from services.doi_service import doi_service
 from db_helper import reset_db
 from config import app
 import bibtex_ref_gen
@@ -16,13 +17,19 @@ def index():
 @app.route("/add_citation", methods=["POST"])
 def add_citation_route():
     citation = request.form
+    if citation["type"] == "doi":
+        data = doi_service.get_citation_data_from_doi(citation["doi"])
+        data["key"] = citation["key"]
+        data["tags"] = citation["tags"]
+        data = citation_service.fill_data_with_nones(data)
 
-    data = citation_service.fill_data_with_nones(citation)
+    else:
+        data = citation_service.fill_data_with_nones(citation)
 
-    errors = validate_citations(data)
+        errors = validate_citations(data)
 
-    if errors:
-        return render_template("index.html", errors=errors)
+        if errors:
+            return render_template("index.html", errors=errors)
 
     citation_service.add_citation(data)
     flash("Citation added successfully!", "success")
