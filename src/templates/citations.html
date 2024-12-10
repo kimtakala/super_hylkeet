@@ -4,7 +4,6 @@
 <div style="text-align: center;">
 Generate BibTex-code from all citations or choose specific citations.</div>
 <p>
-
     {% if request.args.get('bibtex') %}
 <h2>Generated BibTeX</h2>
 <button type="button" onclick="toggleBibtex()">Hide/show bibtex</button><br>
@@ -28,12 +27,10 @@ Generate BibTex-code from all citations or choose specific citations.</div>
         <option value="DESC">Descending</option>
     </select>
     
-    <button type="submit">Submit</button>
+    <button type="submit" id="submit">Submit</button>
 </form>
 
 <br><br>
-
-
 
 <form action="/generate_bibtex" method="POST">
     <button type="button" id="select_all" onclick="toggleCheckboxes(true)">Select All</button>
