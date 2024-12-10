@@ -90,16 +90,16 @@ def verify_publisher(publisher):
 
 
 def validate_citations(citation):
-    checks = {}
+    chiks = {}
 
-    checks["authors"] = verify_author(citation["authors"])
-    checks["title"] = verify_title(citation["title"])
-    checks["year"] = verify_year(citation["year"])
-    checks["booktitle"] = verify_booktitle(citation.get("booktitle", ""))
-    checks["journal"] = verify_journal(citation.get("journal", ""))
-    checks["volume"] = verify_volume(citation.get("volume", ""))
-    checks["pages"] = verify_pages(citation.get("pages", ""))
-    checks["publisher"] = verify_publisher(citation["publisher"])
+    chiks["authors"] = verify_author(citation["authors"])
+    chiks["title"] = verify_title(citation["title"])
+    chiks["year"] = verify_year(citation["year"])
+    chiks["booktitle"] = verify_booktitle(citation.get("booktitle", ""))
+    chiks["journal"] = verify_journal(citation.get("journal", ""))
+    chiks["volume"] = verify_volume(citation.get("volume", ""))
+    chiks["pages"] = verify_pages(citation.get("pages", ""))
+    chiks["publisher"] = verify_publisher(citation["publisher"])
 
     required_fields = {"article": ["authors", "title", "journal", "year"],
                        "book": ["authors", "title", "publisher", "year"],
@@ -109,15 +109,15 @@ def validate_citations(citation):
 
     errors = {}
 
-    # Move all the required field for this datatype from checks to errors.
+    # Move all the required field for this datatype from chiks to errors.
     for field in required_fields[citation["type"]]:
-        if checks[field]:
-            errors[field] = checks[field]
+        if chiks[field]:
+            errors[field] = chiks[field]
 
-    # Move all not empty not required field from checks to errors.
+    # Move all not empty not required field from chiks to errors.
     for k, v in citation.items():
         if v != "" and k not in required_fields[citation["type"]]\
-                and k in checks and checks[k]:
-            errors[k] = checks[k]
+                and k in chiks and chiks[k]:
+            errors[k] = chiks[k]
 
     return errors
