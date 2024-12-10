@@ -8,8 +8,8 @@ import bibtex_ref_gen
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    query = "" if request.method == "GET" else request.form["query"]
-    citations = citation_service.fetch_citations(search_key=query)
+    search = "" if request.method == "GET" else request.form["search"]
+    citations = citation_service.fetch_citations(search_key=search)
     return render_template("index.html", listed_citations=citations)
 
 
