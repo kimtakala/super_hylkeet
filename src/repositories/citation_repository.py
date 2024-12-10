@@ -52,7 +52,7 @@ def get_citation_by_title(title):
 def get_citations_by_ids(ids):
     sql = "SELECT * FROM citations WHERE id = ANY(:ids)"
     result = db.session.execute(
-        text(sql), {"ids": list([int(i) for i in ids])})
+        text(sql), {"ids": [int(i) for i in ids]})
     citations = [Citation(row) for row in result.fetchall()]
     return citations
 
@@ -96,10 +96,10 @@ def add_citation(data):
     )
 
 
-def delete_by_id(id):
-    sql = text("DELETE FROM citations WHERE id = :id")
+def delete_by_id(citation_id):
+    sql = text("DELETE FROM citations WHERE id = :citation_id")
     db.session.execute(
         sql,
-        {"id": id}
+        {"citation_id": citation_id}
     )
     db.session.commit()
