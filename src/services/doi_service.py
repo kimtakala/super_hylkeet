@@ -18,7 +18,7 @@ class DoiService:
         # field are type (response field, our field)
         direct_keys = {"type": "type",
                        "publisher": "publisher",
-                       "page": "page",
+                       "pages": "page",
                        "doi": "DOI",
                        "volume": "volume"}
 
@@ -59,6 +59,7 @@ class DoiService:
         return ""
 
 
+doi_service = DoiService()
 if __name__ == "__main__":
     d = DoiService()
     print("\n\n")
