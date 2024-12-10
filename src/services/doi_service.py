@@ -39,7 +39,6 @@ class DoiService:
 
     def _load_data_from_api(self, doi):
         request_url = self._base_url + doi
-        print(request_url)
         response = requests.get(request_url, timeout=100).json()
         self.data = response["message"]
 
@@ -60,9 +59,3 @@ class DoiService:
 
 
 doi_service = DoiService()
-if __name__ == "__main__":
-    d = DoiService()
-    print("\n\n")
-    d.get_citation_data_from_doi("10.1007/978-3-319-46547-0_16")
-    print("\n\n")
-    d.get_citation_data_from_doi("10.1080/10496500902802718")

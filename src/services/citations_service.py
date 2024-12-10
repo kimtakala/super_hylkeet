@@ -65,7 +65,6 @@ class CitationService:
         required_fields = list(COLUMN_NAMES)
         required_fields.remove("id")
         required_fields.remove("timestamp")
-        hprint(required_fields)
         for field in required_fields:
             if field not in data:
                 data[field] = ""
