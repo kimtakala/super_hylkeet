@@ -10,11 +10,11 @@ class DoiService:
 
         self._load_data_from_api(doi)
 
-        citation_data = self._parse_data_to_dict()
+        citation_data = self.parse_data_to_dict()
 
         return citation_data
 
-    def _parse_data_to_dict(self):
+    def parse_data_to_dict(self):
         # field are type (response field, our field)
         direct_keys = {"type": "type",
                        "publisher": "publisher",
