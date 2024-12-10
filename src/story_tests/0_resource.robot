@@ -7,7 +7,7 @@ Library  Collections
 
 *** Variables ***
 ${SERVER}     localhost:5001
-${DELAY}      0.15 seconds
+${DELAY}      0.05 seconds
 ${HOME_URL}   http://${SERVER}
 ${RESET_URL}  http://${SERVER}/reset_db
 ${BROWSER}    chrome
