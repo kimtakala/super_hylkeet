@@ -147,6 +147,7 @@ h4:hover {
 }
 
 div.sticky {
+    z-index: 1000;
     position: sticky;
     top: 0px;
     padding-top: 10px;
@@ -156,6 +157,7 @@ div.sticky {
 }
 
 div.sticky_button {
+    z-index: 1001;
     background-color: #e8e8e8;
     padding: 15px;
     border-radius: 13px;
