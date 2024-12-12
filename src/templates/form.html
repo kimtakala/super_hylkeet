@@ -1,12 +1,13 @@
 <div class="input_form" style="display: none;">
-    <form action="/add_citation" method="post">
-        <label for="type">Type:</label><br>
+    <form action="/add_citation" method="post" autocomplete="off">
+        <label for="type">Addition Type:</label><br>
         <select id="type" name="type" onchange="showArticleType()" required>
             <option value="" selected>Select type</option>
             <option value="book">Book</option>
             <option value="article">Article</option>
             <option value="inproceedings">Inproceedings</option>
             <option value="misc">Misc</option>
+            <option value="doi">Doi</option>
         </select>
         <br><br>
     </form>
@@ -22,5 +23,8 @@
 
     <!-- MISC -->
     {% include 'forms/misc.html' %}
+
+    <!-- DOI -->
+    {% include 'forms/doi.html' %}
 
 </div>

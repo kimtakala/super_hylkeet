@@ -1,13 +1,15 @@
-# This is a test file that submits citations to the reference app and test the delete functionality for each of the citation types
+# This is a test file that tests the deleting functionality for each of the citation types
 
 *** Settings ***
 Resource         0_resource.robot
 Suite Setup      Suite Setup Steps
 Suite Teardown   Close Browser
+Test Setup       Reset And Initialize With One Of Each Citation Type
 
 *** Keywords ***
 Suite Setup Steps
     Open And Configure Browser
+
 
 *** Test Cases ***
 Page Loads

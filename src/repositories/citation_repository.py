@@ -3,12 +3,15 @@ from config import db
 
 from entities.citation import Citation
 
+SORTING_KEYS = {"author": "a.last_name", "title": "c.title",
+                "year": "c.year", "time_added": "c.timestamp"}
 
-def get_citations():
-    sql = """   SELECT citations.*  FROM citations
-                LEFT JOIN authors ON citations.id = authors.citation_id
-                WHERE authors.main_author = true
-                ORDER BY authors.last_name ASC
+
+def get_citations(sorting_key="author", sorting_order="ASC"):
+    sql = f"""   SELECT c.*  FROM citations c
+                LEFT JOIN authors a ON c.id = a.citation_id
+                WHERE a.main_author = true
+                ORDER BY {SORTING_KEYS[sorting_key]} {(sorting_order)}
             """
     result = db.session.execute(text(sql))
     citations = result.fetchall()
@@ -16,17 +19,17 @@ def get_citations():
     return [Citation(data) for data in citations]
 
 
-def search_citations(search_key):
+def search_citations(search_key, sorting_key="author", sorting_order="ASC"):
     key = "%"+search_key+"%"
-    sql = text("""   SELECT c.*  FROM citations c
+    sql = text(f"""   SELECT c.*  FROM citations c
                 LEFT JOIN authors a ON c.id = a.citation_id
                 WHERE a.main_author = true AND (
-                    c.title LIKE :search_key OR
+                    LOWER(c.title) LIKE LOWER(:search_key) OR
                     LOWER(c.tags) LIKE LOWER(:search_key) OR
                     LOWER(c.key) LIKE LOWER(:search_key) OR
                     LOWER(a.first_name) LIKE LOWER(:search_key) OR
                     LOWER(a.last_name) LIKE LOWER(:search_key))
-                ORDER BY a.last_name ASC
+                ORDER BY {SORTING_KEYS[sorting_key]} {sorting_order}
             """)
     result = db.session.execute(
         sql,
@@ -49,7 +52,7 @@ def get_citation_by_title(title):
 def get_citations_by_ids(ids):
     sql = "SELECT * FROM citations WHERE id = ANY(:ids)"
     result = db.session.execute(
-        text(sql), {"ids": list([int(i) for i in ids])})
+        text(sql), {"ids": [int(i) for i in ids]})
     citations = [Citation(row) for row in result.fetchall()]
     return citations
 
@@ -93,10 +96,10 @@ def add_citation(data):
     )
 
 
-def delete_by_id(id):
-    sql = text("DELETE FROM citations WHERE id = :id")
+def delete_by_id(citation_id):
+    sql = text("DELETE FROM citations WHERE id = :citation_id")
     db.session.execute(
         sql,
-        {"id": id}
+        {"citation_id": citation_id}
     )
     db.session.commit()

@@ -1,7 +1,10 @@
+# This is a test file that tests the functionality for submitting citations to the website for each of the citation types
+
 *** Settings ***
 Resource         0_resource.robot
 Suite Setup      Open And Configure Browser
 Suite Teardown   Close Browser
+Test Setup       Reset Application And Go To Home Page
 
 *** Test Cases ***
 Page Loads
@@ -11,24 +14,7 @@ Page Loads
 
 Entering Valid Information The **BOOK** Citation Is Accepted
     Go To  ${HOME_URL}
-    Click Button  reference
-    Select From List By Value  type  book
-    Input Text  title_book  scientific study
-    Input Text  key_book  123
-    Input Text  authors_book  Hylje Maisteri
-    Input Text  publisher_book  Otava
-    Input Text  year_book  1975
-    Input Text  volume_book  1
-    Input Text  pages_book  110
-    Input Text  series_book  Science Series
-    Input Text  address_book  Helsinki
-    Input Text  edition_book  2nd
-    Input Text  month_book  January
-    Input Text  note_book  Important Study
-    Input Text  tags_book  science, book
-    Input Text  citation_url_book  www.example.com
-    Textfield Value Should Be  id=tags_book  science, book
-    Click Button  submit_book
+    Enter Valid Book Citation
     Title Should Be  Reference app
     ${value}=  Get Value  id=tags_book
     Should Be Empty  ${value}
