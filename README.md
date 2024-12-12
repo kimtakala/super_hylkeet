@@ -11,7 +11,7 @@ Lue [täältä](https://ohjelmistotuotanto-hy.github.io/flask/) lisää.
 
 Luo tietokanta.
 
-Kloonaa tämä repositorio omalle koneellesi ja siirry sen juurikansioon. Luo kansioon .env-tiedosto ja määritä sen sisältö seuraavanlaiseksi:
+Kloonaa tämä repositorio omalle koneellesi ja siirry sen juurikansioon. Luo sinne .env-tiedosto ja määritä sen sisältö seuraavanlaiseksi:
 
 ```
 DATABASE_URL=postgresql://xxx
@@ -42,6 +42,22 @@ Käynnistä sovellus komennolla:
 ````
 python3 src/index.py
 ````
+
+Tietokantaan voi luoda esimerkki sisältöä komennolla:
+````
+robot populate_database/1_generate_data.robot
+````
+
+Tietokannan voi tyhjentää komennolla:
+````
+robot populate_database/2_clear_db.robot
+````
+
+Testit voi suorittaa komennolla:
+````
+robot src/story_tests/
+````
+
 
 ### Valmiin määritelmä
 
