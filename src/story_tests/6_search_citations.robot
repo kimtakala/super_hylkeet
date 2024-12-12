@@ -7,51 +7,27 @@ Suite Teardown   Close Browser
 Test Setup       Reset And Initialize With One Of Each Citation Type
 
 
+*** Variables ***
+${search_phrase}  scientific
+
 *** Test Cases ***
-# Search Citations By *empty*
-#     Go To  ${HOME_URL}
-#     Click Button  search
-#     Title Should Be  Reference app
-#     ${citations}=  Get WebElements  xpath=.//div[@class='citation']
-#     Length Should Be  ${citations}  4
-
-#! alla olevat ovat place holdereita
-
-# Search Citations By "hylje"
-#     ${search_phrase}=  Set Variable  hylje
-#     Go To  ${HOME_URL}
-#     Input Text  search  ${search_phrase}
-#     Click Button  submit
-#     Title Should Be  Reference app
-#     ${citations}=  Get WebElements  xpath=//div[@class='citation']
-#     All Elements Should Contain Search Phrase  ${citations}  ${search_phrase}
-#     Length Should Be  ${citations}  1
-
-# Sorting Citations By Author In Ascending Order
-#     Go To  ${HOME_URL}
-#     Select From List By Value  sorting_key  author
-#     Select From List By Value  sorting_order  ASC
-#     Click Button  submit
-#     Title Should Be  Reference app
-#     ${citations}=  Get WebElements  xpath=//div[@class='citation']
-#     ${authors}=  Get Citation Authors  ${citations}
-#     Should Be Sorted  ${authors}  ascending
-
+Search Citations By Research Phrase
+    Go To  ${HOME_URL}
+    Input Text  search  ${search_phrase}
+    Click Button  search_button
+    Title Should Be  Reference app
+    Wait Until Element Is Visible  xpath=//h4[@class='title']  timeout=10s
+    ${citations}=  Get WebElements  xpath=//h4[@class='title']
+    ${titles}=  Get Citation Titles  ${citations}
+    Length Should Be  ${titles}  1
+    Sleep  5s
 
 *** Keywords ***
-#! Placeholder
-
-# Get Citation Years
-#     [Arguments]  ${citations}
-#     ${years}=  Create List
-#     FOR  ${citation}  IN  @{citations}
-#         ${year}=  Get Text  ${citation}  xpath=.//div[@class='year']
-#         Append To List  ${years}  ${year}
-#     END
-#     RETURN  ${years}
-
-All Elements Should Contain Search Phrase
-    [Arguments]  ${list}  ${search_phrase}
-    FOR  ${item}  IN  ${list}
-        Should Contain  ${item}  ${search_phrase}
+Get Citation Titles
+    [Arguments]  ${citations}
+    ${titles}=  Create List
+    FOR  ${citation}  IN  @{citations}
+        ${title}=  Get Text  ${citation}
+        Append To List  ${titles}  ${title}
     END
+    RETURN  ${titles}
