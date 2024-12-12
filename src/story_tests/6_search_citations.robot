@@ -29,3 +29,4 @@ Get Citation Titles
         Append To List  ${titles}  ${title}
     END
     RETURN  ${titles}
+
