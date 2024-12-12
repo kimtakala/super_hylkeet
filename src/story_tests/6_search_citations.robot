@@ -16,11 +16,9 @@ Search Citations By Research Phrase
     Input Text  search  ${search_phrase}
     Click Button  search_button
     Title Should Be  Reference app
-    Wait Until Element Is Visible  xpath=//h4[@class='title']  timeout=10s
     ${citations}=  Get WebElements  xpath=//h4[@class='title']
     ${titles}=  Get Citation Titles  ${citations}
     Length Should Be  ${titles}  1
-    Sleep  5s
 
 *** Keywords ***
 Get Citation Titles
