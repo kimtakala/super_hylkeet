@@ -65,3 +65,7 @@ Ryhmämme määrittää ominaisuuden valmiiksi kun se:
 - toimii halutulla tavalla
 - on testattu
 - on integroitu sovellukseen onnistuneesti
+
+
+# Raportti
+https://docs.google.com/document/d/1vVZflxoTBw85qeFPYgWaDHGju7mM0eVwULu1zpogyvk
