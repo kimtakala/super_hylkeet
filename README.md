@@ -67,5 +67,6 @@ Ryhmämme määrittää ominaisuuden valmiiksi kun se:
 - on integroitu sovellukseen onnistuneesti
 
 
-# Raportti
-https://docs.google.com/document/d/1vVZflxoTBw85qeFPYgWaDHGju7mM0eVwULu1zpogyvk
+# Loppuraportti
+
+Ryhmämme loppuraportti löytyy [täältä](https://docs.google.com/document/d/1vVZflxoTBw85qeFPYgWaDHGju7mM0eVwULu1zpogyvk)
